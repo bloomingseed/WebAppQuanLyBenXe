@@ -1,56 +1,207 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+/*here*/
+.wrap-admin {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../public/assets/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.opacity-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.login-block {
+    display: block;
+    height: 80%;
+    width: 400px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.login-title,
+.search-title {
+    text-align: center;
+    text-transform: capitalize;
+    color: beige;
+    padding: 20px 0px;
+    font-family: "Roboto", sans-serif;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.form-group {
+    padding: 0px 20px;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.input-group {
+    width: 100%;
+    margin-bottom: 30px;
+    background: none;
 }
+
+.form-control {
+    background: none;
+}
+
+    .form-control:focus {
+        background: none;
+        color: white;
+    }
+
+.remember,
+a {
+    color: white;
+}
+
+    .remember input {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+.login_btn {
+    color: black;
+    background-color: #ffc312;
+    width: 100px;
+}
+
+    .login_btn:hover {
+        color: black;
+        background-color: white;
+    }
+
+.card-footer {
+    color: white;
+}
+
+.links {
+    color: #ffc312;
+}
+
+    .links:hover {
+        text-decoration: none;
+    }
+
+.login-footer {
+    position: absolute;
+    z-index: 9999;
+    bottom: 10px;
+    color: white;
+}
+
+
+/* home*/
+
+
+/* .search {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    justify-content: center;
+    padding-top: 55px;
+    align-items: center;
+    background-image: url("./public/assets/img/index-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.search-block {
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: auto;
+}
+
+.label {
+    display: block;
+    padding: 10px 0px;
+    color: white;
+    width: 50px;
+}
+
+.nav-link:focus {
+}
+
+
+/*carousel*/
+
+.blog .carousel-indicators {
+    left: 0;
+    top: auto;
+    bottom: -40px;
+}
+
+
+/* The colour of the indicators */
+
+
+/* .blog .carousel-indicators {
+    background: none;
+    border-radius: none !important;
+}
+*/
+
+#blogCarousel li {
+    background-color: #a3a3a3;
+    border-radius: 50%;
+    display: block;
+    width: 10px;
+    height: 10px;
+}
+
+.carousel-item {
+    padding: 20px 20px;
+}
+
+.promotion {
+    padding: 50px 0px;
+}
+
+.about-system {
+    padding: 50px 0px;
+    background-color: #f3f3f3;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    padding: 20px 0px;
+    background-color: #20232e;
+    color: white;
+}
+
+.contents-list {
+    list-style: none;
+    font-size: 15px;
+    padding: 10px 0px;
+}
+
+.mxh {
+    display: flex;
+    margin: auto;
+}
+
+.mxh-icon {
+    font-size: 30px;
+    color: #ffc312;
+    padding-right: 20px;
 }
