@@ -42,10 +42,7 @@ namespace QuanLyBenXeWebApp.Controllers
 			var xeKhachList = context.XeKhach.AsEnumerable<XeKhach>();
 			bool val = false;
 			var res = xeKhachList.Where(xk=> {
-				if (chuyenDi.TenNhaXe != null)
-					val |= xk.NhaXe.TenNhaXe == chuyenDi.TenNhaXe;
-				if (chuyenDi.LoaiXe != null)
-					val |= xk.LoaiXe == chuyenDi.LoaiXe;
+				//required
 				foreach (var rec in xk.DiemDungList)
 				{
 					if (chuyenDi.MaDiemDung.Contains(rec.MaDiemDung))
@@ -55,23 +52,45 @@ namespace QuanLyBenXeWebApp.Controllers
 					}
 					val |= false;
 				}
-				if (xk.ThoiGianDiChuyen >= chuyenDi.ThoiGianDiChuyenMin &&
-				xk.ThoiGianDiChuyen <= chuyenDi.ThoiGianDiChuyenMax)
-					val |= true;
-				else val |= false;
-				if (xk.GiaVe >= chuyenDi.GiaVeMin &&
-				xk.GiaVe <= chuyenDi.GiaVeMax)
-					val |= true;
-				else val |= false;
+				//required
+				val |= xk.GioKhoiHanh == chuyenDi.GioKhoiHanh;
+				//nullable
+				if (chuyenDi.TenNhaXe != null)
+					val |= xk.NhaXe.TenNhaXe == chuyenDi.TenNhaXe;
+				if (chuyenDi.LoaiXe != null)
+					val |= xk.LoaiXe == chuyenDi.LoaiXe;
+				if(chuyenDi.ThoiGianDiChuyenMin != null && 
+					chuyenDi.ThoiGianDiChuyenMax != null)
+					if (xk.ThoiGianDiChuyen >= chuyenDi.ThoiGianDiChuyenMin &&
+						xk.ThoiGianDiChuyen <= chuyenDi.ThoiGianDiChuyenMax)
+						val |= true;
+					else val |= false;
+				if(chuyenDi.GiaVeMin != null && 
+					chuyenDi.GiaVeMax != null)
+					if (xk.GiaVe >= chuyenDi.GiaVeMin &&
+						xk.GiaVe <= chuyenDi.GiaVeMax)
+							val |= true;
+					else val |= false;
+				//returning
 				return val;
 			});
+			//convert to view model
 			List<ChuyenDiViewModel> models = new List<ChuyenDiViewModel>();
-			foreach(var xk in res)
+			foreach (XeKhach xk in res)
 			{
-				var diemDungList = from diemdung in context.DiemDung
-								   where diemdung.MaDiemDung == 
-				models.Add(new ChuyenDiViewModel(xk))
+				var diemDungList = context.DiemDung.AsEnumerable<DiemDung>();
+				var fullDiemDung = from ctDiemDung in diemDungList
+								   from diemDung in xk.DiemDungList
+								   where diemDung.MaDiemDung == ctDiemDung.MaDiemDung
+								   select ctDiemDung;
+				List<string> tenDiemDungList = new List<string>();
+				foreach (DiemDung diemDung in fullDiemDung)
+						tenDiemDungList.Add(diemDung.ToString());
+				models.Add(new ChuyenDiViewModel(xk, tenDiemDungList.ToArray(), chuyenDi.NgayKhoiHanh));
 			}
+			//return
+			return new JsonResult(models.ToArray());
 		}
 	}
+	
 }

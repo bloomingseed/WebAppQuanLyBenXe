@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using QuanLyBenXeWebApp.Models;
 
 namespace QuanLyBenXeWebApp
 {
@@ -30,6 +32,7 @@ namespace QuanLyBenXeWebApp
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 
+			services.AddDbContext<BenXeDaNangContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}
