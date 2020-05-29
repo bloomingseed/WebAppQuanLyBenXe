@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -77,6 +78,18 @@ namespace QuanLyBenXeWebApp.Models
 		public string SoNhaDuong { get; set; }
 
 		public List<XeKhachDiemDung> XeKhachList { get; set; }
+
+		public override string ToString()
+		{
+			StringBuilder builder = new StringBuilder();
+			string p = ", ";
+			if (SoNhaDuong != null) builder.Append(SoNhaDuong + p);
+			if (ThonAp != null) builder.Append(ThonAp + p);
+			if (XaPhuong != null) builder.Append(XaPhuong + p);
+			if (HuyenQuan != null) builder.Append(HuyenQuan + p);
+			if (TenTinhTp != null) builder.Append(TenTinhTp);
+			return builder.ToString();
+		}
 	}
 	public class XeKhach
 	{
@@ -127,5 +140,20 @@ namespace QuanLyBenXeWebApp.Models
 	{
 		[Key, StringLength(10)]
 		public string MaViTri { get; set; }
+	}
+	public class ChuyenDi
+	{
+		public string TenNhaXe { get; set; }
+		public string LoaiXe { get; set; }
+		[Required]
+		public string[] MaDiemDung { get; set; }
+		[Required]
+		public TimeSpan? GioKhoiHanh { get; set; }
+		public TimeSpan? ThoiGianDiChuyenMin { get; set; }
+		public TimeSpan? ThoiGianDiChuyenMax { get; set; }
+		public int? GiaVeMin { get; set; }
+		public int? GiaVeMax { get; set; }
+		[Required]
+		public DateTime NgayKhoiHanh { get; set; }
 	}
 }
