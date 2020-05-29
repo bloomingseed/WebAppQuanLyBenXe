@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyBenXeWebApp.Models
 {
@@ -66,7 +67,7 @@ namespace QuanLyBenXeWebApp.Models
 	{
 		[Key, StringLength(10)]
 		public string MaDiemDung { get; set; }
-		[StringLength(20)]
+		[Required, StringLength(20)]
 		public string TenTinhTp { get; set; }
 		[StringLength(50)]
 		public string HuyenQuan { get; set; }
@@ -99,15 +100,15 @@ namespace QuanLyBenXeWebApp.Models
 		public string MaNhaXe { get; set; }
 		[StringLength(10)]
 		public string MaTaiXe { get; set; }
-		[StringLength(12)]
+		[Required, StringLength(12)]
 		public string BienSoXe { get; set; }
 		public int SoGhe { get; set; }
 		public int GiaVe { get; set; }
-		[StringLength(20)]
+		[Required, StringLength(20)]
 		public string LoaiXe { get; set; }
-		[DataType(DataType.Time)]
+		[Required, DataType(DataType.Time)]
 		public TimeSpan GioKhoiHanh { get; set; }
-		[DataType(DataType.Time)]
+		[Required, DataType(DataType.Time)]
 		public TimeSpan ThoiGianDiChuyen { get; set; }
 		[DataType(DataType.DateTime)]
 		public DateTime GiaoDichCuoi { get; set; }
@@ -135,12 +136,16 @@ namespace QuanLyBenXeWebApp.Models
 		public string MaViTri { get; set; }
 		[DataType(DataType.DateTime)]
 		public DateTime GioNhapBen { get; set; }
+
+		public XeKhach XeKhach { get; set; }
+		public ViTroDo ViTroDo { get; set; }
 	}
 	public class ViTroDo
 	{
 		[Key, StringLength(10)]
 		public string MaViTri { get; set; }
 	}
+	[NotMapped]
 	public class ChuyenDi
 	{
 		public string TenNhaXe { get; set; }
