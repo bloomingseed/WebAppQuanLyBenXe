@@ -13,24 +13,84 @@
 					<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
 						<div class="input-group">
 							<label for="" class="label">Từ:</label>
-							<input type="text" class="form-control" name="" id="" placeholder="Điểm bắt đầu">
+							<input type="text" class="form-control mx-auto my-auto" name="" id="" placeholder="Điểm bắt đầu" list="diembatdau">
+							<datalist id="diembatdau">
+								<option value="Da Nang"></option>
+								<option value="Quang Nam"></option>
+								<option value="Gia Lai"></option>
+								<option value="Dong Nai"></option>
+							</datalist>
 						</div>
 					</div>
 					<div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
 						<div class="input-group">
 							<label for="" class="label">Đến:</label>
-							<input type="text" class="form-control" name="" id="" placeholder="Điểm dừng">
+							<input type="text" class="form-control mx-auto my-auto" name="" id="" placeholder="Điểm dừng" list="diemketthuc">
+							<datalist id="diemketthuc">
+								<option value="Da Nang"></option>
+								<option value="Quang Nam"></option>
+								<option value="Gia Lai"></option>
+								<option value="Dong Nai"></option>
+							</datalist>
 						</div>
 					</div>
 					<div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
 						<div class="input-group">
 							<span class="label">Ngày:</span>
-							<input class="form-control" type="date" required>
+							<input class="form-control mx-auto my-auto" type="date" required>
 						</div>
 					</div>
-					<button type="button" class="btn col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mx-auto mb-3" style="background-color:#ffc312">
-						<i class="fas fa-search"></i> Tìm Kiếm
-					</button>
+					<div class="nangcao col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" id="toggle">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+								<div class="input-group">
+									<label for="" class="label">Nhà Xe:</label>
+									<input type="text" class="form-control mx-auto my-auto" name="" id="" placeholder="Nhà Xe" list="nhaxe">
+									<datalist id="nhaxe">
+										<option value="Ong Phuc"></option>
+										<option value="Ong Tung"></option>
+										<option value="Ong Nghia"></option>
+										<option value="Ong Tho"></option>
+									</datalist>
+								</div>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+								<form action="" class="input-group">
+									<label for="quantity" class="label">Khoảng T/g:</label>
+									<input type="number" class="form-control mx-auto my-auto" id="quantity" name="quantity" min="1" max="48" step="0.5">
+								</form>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+								<div class="input-group">
+									<label for="" class="label">Nhà Xe:</label>
+									<input type="text" class="form-control mx-auto my-auto" name="" id="" placeholder="Loại Xe" list="loaixe">
+									<datalist id="loaixe">
+										<option value="xe 4 banh"></option>
+										<option value="xe 5 banh"></option>
+										<option value="xe 6 banh"></option>
+										<option value="xe 7 bánh"></option>
+									</datalist>
+								</div>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+								<form action="" class="input-group" id="money">
+									<label for="quantity" class="label">Giá Vé:</label>
+									<input type="number" class="form-control mx-auto my-auto" id="quantity" name="quantity" min="50000" max="500000" step="50000">
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
+						<button type="button" class="btn  d-block" style="background-color: #ffc312;width: 50%; margin:auto" id="toggle-button">
+							<i class="fas fa-caret-down"></i> Tìm Kiếm Nâng Cao
+						</button>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
+						<button type="button" class="btn  d-block" style="background-color:#ffc312; width:50%; margin:auto">
+							<i class="fas fa-search"></i> Tìm Kiếm
+						</button>
+					</div>
+
 				</div>
 			</div>
 		</div>

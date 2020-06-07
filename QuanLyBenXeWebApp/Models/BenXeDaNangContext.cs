@@ -35,9 +35,9 @@ namespace QuanLyBenXeWebApp.Models
 	{
 		[Key, StringLength(10)]
 		public string MaTaiXe { get; set; }
-		[StringLength(20)]
+		[Required, StringLength(20)]
 		public string HoDem { get; set; }
-		[StringLength(10)]
+		[Required, StringLength(10)]
 		public string Ten { get; set; }
 		public bool NamGioi { get; set; }
 		[StringLength(50)]
