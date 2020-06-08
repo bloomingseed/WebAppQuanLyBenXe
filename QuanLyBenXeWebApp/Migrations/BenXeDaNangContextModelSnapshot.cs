@@ -55,6 +55,9 @@ namespace QuanLyBenXeWebApp.Migrations
                     b.Property<string>("DiaChi")
                         .HasMaxLength(60);
 
+                    b.Property<string>("MaQTV")
+                        .HasMaxLength(10);
+
                     b.Property<string>("MauBieuTuong")
                         .HasMaxLength(9);
 
@@ -101,6 +104,7 @@ namespace QuanLyBenXeWebApp.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("HoDem")
+                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.Property<bool>("NamGioi");
@@ -112,6 +116,7 @@ namespace QuanLyBenXeWebApp.Migrations
                         .HasMaxLength(12);
 
                     b.Property<string>("Ten")
+                        .IsRequired()
                         .HasMaxLength(10);
 
                     b.HasKey("MaTaiXe");
@@ -137,17 +142,13 @@ namespace QuanLyBenXeWebApp.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("BienSoXe")
-                        .IsRequired()
                         .HasMaxLength(12);
 
                     b.Property<int>("GiaVe");
 
                     b.Property<DateTime>("GiaoDichCuoi");
 
-                    b.Property<TimeSpan>("GioKhoiHanh");
-
                     b.Property<string>("LoaiXe")
-                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.Property<string>("MaNhaXe")
@@ -157,8 +158,6 @@ namespace QuanLyBenXeWebApp.Migrations
                         .HasMaxLength(10);
 
                     b.Property<int>("SoGhe");
-
-                    b.Property<TimeSpan>("ThoiGianDiChuyen");
 
                     b.HasKey("MaXeKhach");
 
@@ -177,17 +176,25 @@ namespace QuanLyBenXeWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<TimeSpan>("GioDiKhoiDN");
+
+                    b.Property<TimeSpan>("GioDiToiDN");
+
                     b.Property<string>("MaDiemDung")
                         .HasMaxLength(10);
 
                     b.Property<string>("MaXeKhach")
                         .HasMaxLength(10);
 
+                    b.Property<TimeSpan>("TGDCkhoiDN");
+
+                    b.Property<TimeSpan>("TGDCtoiDN");
+
                     b.HasKey("Stt");
 
                     b.HasIndex("MaDiemDung");
 
-                    b.HasIndex("MaXeKhach", "MaDiemDung")
+                    b.HasIndex("MaXeKhach", "MaDiemDung", "GioDiKhoiDN", "GioDiToiDN", "TGDCkhoiDN", "TGDCtoiDN")
                         .IsUnique()
                         .HasFilter("[MaXeKhach] IS NOT NULL AND [MaDiemDung] IS NOT NULL");
 
@@ -218,11 +225,11 @@ namespace QuanLyBenXeWebApp.Migrations
 
             modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhachDiemDung", b =>
                 {
-                    b.HasOne("QuanLyBenXeWebApp.Models.DiemDung")
+                    b.HasOne("QuanLyBenXeWebApp.Models.DiemDung", "DiemDung")
                         .WithMany("XeKhachList")
                         .HasForeignKey("MaDiemDung");
 
-                    b.HasOne("QuanLyBenXeWebApp.Models.XeKhach")
+                    b.HasOne("QuanLyBenXeWebApp.Models.XeKhach", "XeKhach")
                         .WithMany("DiemDungList")
                         .HasForeignKey("MaXeKhach");
                 });

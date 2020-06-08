@@ -29,6 +29,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 columns: table => new
                 {
                     MaNhaXe = table.Column<string>(maxLength: 10, nullable: false),
+                    MaQTV = table.Column<string>(maxLength: 10, nullable: true),
                     TenNhaXe = table.Column<string>(maxLength: 40, nullable: true),
                     SoLuongXe = table.Column<int>(nullable: false),
                     Sdt = table.Column<string>(maxLength: 12, nullable: true),
@@ -45,8 +46,8 @@ namespace QuanLyBenXeWebApp.Migrations
                 columns: table => new
                 {
                     MaTaiXe = table.Column<string>(maxLength: 10, nullable: false),
-                    HoDem = table.Column<string>(maxLength: 20, nullable: true),
-                    Ten = table.Column<string>(maxLength: 10, nullable: true),
+                    HoDem = table.Column<string>(maxLength: 20, nullable: false),
+                    Ten = table.Column<string>(maxLength: 10, nullable: false),
                     NamGioi = table.Column<bool>(nullable: false),
                     NoiSinh = table.Column<string>(maxLength: 50, nullable: true),
                     Sdt = table.Column<string>(maxLength: 12, nullable: true)
@@ -74,12 +75,10 @@ namespace QuanLyBenXeWebApp.Migrations
                     MaXeKhach = table.Column<string>(maxLength: 10, nullable: false),
                     MaNhaXe = table.Column<string>(maxLength: 10, nullable: true),
                     MaTaiXe = table.Column<string>(maxLength: 10, nullable: true),
-                    BienSoXe = table.Column<string>(maxLength: 12, nullable: false),
+                    BienSoXe = table.Column<string>(maxLength: 12, nullable: true),
                     SoGhe = table.Column<int>(nullable: false),
                     GiaVe = table.Column<int>(nullable: false),
-                    LoaiXe = table.Column<string>(maxLength: 20, nullable: false),
-                    GioKhoiHanh = table.Column<TimeSpan>(nullable: false),
-                    ThoiGianDiChuyen = table.Column<TimeSpan>(nullable: false),
+                    LoaiXe = table.Column<string>(maxLength: 20, nullable: true),
                     GiaoDichCuoi = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -133,7 +132,11 @@ namespace QuanLyBenXeWebApp.Migrations
                     Stt = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MaXeKhach = table.Column<string>(maxLength: 10, nullable: true),
-                    MaDiemDung = table.Column<string>(maxLength: 10, nullable: true)
+                    MaDiemDung = table.Column<string>(maxLength: 10, nullable: true),
+                    GioDiKhoiDN = table.Column<TimeSpan>(nullable: false),
+                    TGDCkhoiDN = table.Column<TimeSpan>(nullable: false),
+                    GioDiToiDN = table.Column<TimeSpan>(nullable: false),
+                    TGDCtoiDN = table.Column<TimeSpan>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,9 +183,9 @@ namespace QuanLyBenXeWebApp.Migrations
                 column: "MaDiemDung");
 
             migrationBuilder.CreateIndex(
-                name: "IX_XeKhachDiemDung_MaXeKhach_MaDiemDung",
+                name: "IX_XeKhachDiemDung_MaXeKhach_MaDiemDung_GioDiKhoiDN_GioDiToiDN_TGDCkhoiDN_TGDCtoiDN",
                 table: "XeKhachDiemDung",
-                columns: new[] { "MaXeKhach", "MaDiemDung" },
+                columns: new[] { "MaXeKhach", "MaDiemDung", "GioDiKhoiDN", "GioDiToiDN", "TGDCkhoiDN", "TGDCtoiDN" },
                 unique: true,
                 filter: "[MaXeKhach] IS NOT NULL AND [MaDiemDung] IS NOT NULL");
         }

@@ -26,7 +26,9 @@ namespace QuanLyBenXeWebApp.Models
 		{
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<XeKhachDiemDung>()
-				.HasIndex(record => new { record.MaXeKhach, record.MaDiemDung })
+				.HasIndex(record => new {
+					record.MaXeKhach, record.MaDiemDung, record.GioDiKhoiDN,
+					record.GioDiToiDN, record.TGDCkhoiDN, record.TGDCtoiDN})
 				.IsUnique();
 		}
 	}
@@ -46,11 +48,23 @@ namespace QuanLyBenXeWebApp.Models
 		public string Sdt { get; set; }
 
 		public XeKhach XeKhach { get; set; }
+
+		public override string ToString()
+		{
+			return $"{HoDem} {Ten}";
+		}
+		[NotMapped]
+		public string GioiTinh { get
+			{
+				return NamGioi ? "Nam" : "Nữ";
+			} }
 	}
 	public class NhaXe
 	{
 		[Key, StringLength(10)]
 		public string MaNhaXe { get; set; }
+		[StringLength(10)]
+		public string MaQTV { get; set; }
 		[StringLength(40)]
 		public string TenNhaXe { get; set; }
 		public int SoLuongXe { get; set; }
@@ -100,16 +114,12 @@ namespace QuanLyBenXeWebApp.Models
 		public string MaNhaXe { get; set; }
 		[StringLength(10)]
 		public string MaTaiXe { get; set; }
-		[Required, StringLength(12)]
+		[StringLength(12)]
 		public string BienSoXe { get; set; }
 		public int SoGhe { get; set; }
 		public int GiaVe { get; set; }
-		[Required, StringLength(20)]
+		[StringLength(20)]
 		public string LoaiXe { get; set; }
-		[Required, DataType(DataType.Time)]
-		public TimeSpan GioKhoiHanh { get; set; }
-		[Required, DataType(DataType.Time)]
-		public TimeSpan ThoiGianDiChuyen { get; set; }
 		[DataType(DataType.DateTime)]
 		public DateTime GiaoDichCuoi { get; set; }
 
@@ -125,6 +135,13 @@ namespace QuanLyBenXeWebApp.Models
 		public string MaXeKhach { get; set; }
 		[StringLength(10)]
 		public string MaDiemDung { get; set; }
+		public TimeSpan GioDiKhoiDN { get; set; }
+		public TimeSpan TGDCkhoiDN{ get; set; }
+		public TimeSpan GioDiToiDN { get; set; }
+		public TimeSpan TGDCtoiDN{ get; set; }
+
+		public XeKhach XeKhach { get; set; }
+		public DiemDung DiemDung { get; set; }
 	}
 	public class TTBenXe
 	{
@@ -148,17 +165,18 @@ namespace QuanLyBenXeWebApp.Models
 	[NotMapped]
 	public class ChuyenDi
 	{
-		public string TenNhaXe { get; set; }
-		public string LoaiXe { get; set; }
+		//core information
 		[Required]
-		public string[] MaDiemDung { get; set; }
+		public string DiemDi { get; set; }
 		[Required]
-		public TimeSpan? GioKhoiHanh { get; set; }
-		public TimeSpan? ThoiGianDiChuyenMin { get; set; }
-		public TimeSpan? ThoiGianDiChuyenMax { get; set; }
-		public int? GiaVeMin { get; set; }
-		public int? GiaVeMax { get; set; }
+		public string DiemDen { get; set; }
 		[Required]
 		public DateTime NgayKhoiHanh { get; set; }
+		//nullable information
+		public string TenNhaXe { get; set; }
+		public string LoaiXe { get; set; }
+		public TimeSpan? ThoiGianDiChuyenMax { get; set; }
+		public int? GiaVeMax { get; set; }
+		
 	}
 }

@@ -308,3 +308,14 @@ a[data-toggle="collapse"] {
 	padding-left: 0;
 	list-style: none;
 }
+
+.color-square{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-width: 2px;
+	border-style: outset;
+}
+.view-container{
+	margin: 56px;
+}
