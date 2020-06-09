@@ -46,18 +46,28 @@
 								<a class="dropdown-item" href="#">Nhà xe porsche 911</a>
 							</div>
 						</li>
-						@*<li class="nav-item">
-							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-						</li>*@
-						<li class="nav-item">
-							<a class="nav-link" asp-area="" asp-controller="Student" asp-action="Index">Students Management</a>
-						</li>
 						<li class="nav-item">
 							<button type="button" class="btn btn-light"><i class="fas fa-phone"></i> Hotline</button>
 						</li>
-						@*<li class="nav-item">
-							<a class="nav-link" asp-area="" asp-controller="StudentModels" asp-action="Index">Students Management</a>
-						</li>*@
+						@{
+							if (User.Identity.IsAuthenticated)
+							{
+								<li class="nav-item">
+									<span>Hello <i>@User.Identity.Name.</i></span>
+								</li>
+								<li class="nav-item">
+									<form method="post" asp-controller="account" asp-action="logout">
+										<button type="submit">Đăng xuất.</button>
+									</form>
+								</li>
+							}
+							else
+							{
+								<li class="nav-item">
+									<a class="nav-link" asp-area="" asp-controller="account" asp-action="login">Đăng nhập</a>
+								</li>
+							}
+						}
 					</ul>
 				</div>
 			</div>

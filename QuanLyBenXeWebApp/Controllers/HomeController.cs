@@ -67,9 +67,11 @@ namespace QuanLyBenXeWebApp.Controllers
 				xkdd.XeKhach.NhaXe = context.NhaXe.Find(xkdd.XeKhach.MaNhaXe);
 				xkdd.XeKhach.TaiXe = context.TaiXe.Find(xkdd.XeKhach.MaTaiXe);
 				xkdd.DiemDung = context.DiemDung.Find(xkdd.MaDiemDung);
+				if (xkdd.XeKhach.NhaXe.GiaoDichCuoi.AddDays(180) < DateTime.Today)
+					continue;
 				if (chuyenDi.TenNhaXe != null && chuyenDi.TenNhaXe != xkdd.XeKhach.NhaXe.TenNhaXe)
 					continue;
-				if (chuyenDi.LoaiXe != null && chuyenDi.LoaiXe != xkdd.XeKhach.LoaiXe)
+				if (chuyenDi.SoGhe != null && chuyenDi.SoGhe != xkdd.XeKhach.SoGhe)
 					continue;
 				if (chuyenDi.ThoiGianDiChuyenMax != null)
 				{

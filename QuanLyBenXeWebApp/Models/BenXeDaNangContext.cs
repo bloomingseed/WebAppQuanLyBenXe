@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyBenXeWebApp.Models
 {
-	public class BenXeDaNangContext : DbContext
+	public class BenXeDaNangContext : IdentityDbContext<QuanTriVien>
 	{
 		public DbSet<TaiXe> TaiXe { get; set; }
 		public DbSet<NhaXe> NhaXe { get; set; }
@@ -19,7 +19,8 @@ namespace QuanLyBenXeWebApp.Models
 		public DbSet<XeKhachDiemDung> XeKhachDiemDung { get; set; }
 		public DbSet<ViTroDo> ViTroDo { get; set; }
 		public DbSet<TTBenXe> TTBenXe { get; set; }
-
+		public DbSet<LichSuVaoRa> LichSuVaoRa { get; set; }
+		public DbSet<GiaoDich> GiaoDich { get; set; }
 
 		public BenXeDaNangContext(DbContextOptions<BenXeDaNangContext> options) : base(options) { }
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,6 +34,25 @@ namespace QuanLyBenXeWebApp.Models
 		}
 	}
 
+	public class NhaXe
+	{
+		[Key, StringLength(10)]
+		public string MaNhaXe { get; set; }
+		[Required, StringLength(40)]
+		public string TenNhaXe { get; set; }
+		public int SoLuongXe { get; set; }
+		[Required, StringLength(12)]
+		public string Sdt { get; set; }
+		[Required, StringLength(9)]
+		public string MauBieuTuong { get; set; }
+		[Required, StringLength(60)]
+		public string DiaChi { get; set; }
+		[DataType(DataType.DateTime)]
+		public DateTime GiaoDichCuoi { get; set; }
+
+		public List<XeKhach> XeKhachList { get; set; }
+	}
+
 	public class TaiXe
 	{
 		[Key, StringLength(10)]
@@ -44,7 +64,7 @@ namespace QuanLyBenXeWebApp.Models
 		public bool NamGioi { get; set; }
 		[StringLength(50)]
 		public string NoiSinh { get; set; }
-		[StringLength(12)]
+		[Required, StringLength(12)]
 		public string Sdt { get; set; }
 
 		public XeKhach XeKhach { get; set; }
@@ -59,24 +79,76 @@ namespace QuanLyBenXeWebApp.Models
 				return NamGioi ? "Nam" : "Nữ";
 			} }
 	}
-	public class NhaXe
+
+	public class XeKhach
 	{
 		[Key, StringLength(10)]
+		public string MaXeKhach { get; set; }
+		[Required, StringLength(10)]
 		public string MaNhaXe { get; set; }
-		[StringLength(10)]
-		public string MaQTV { get; set; }
-		[StringLength(40)]
-		public string TenNhaXe { get; set; }
-		public int SoLuongXe { get; set; }
-		[StringLength(12)]
-		public string Sdt { get; set; }
-		[StringLength(9)]
-		public string MauBieuTuong { get; set; }
-		[StringLength(60)]
-		public string DiaChi { get; set; }
+		[Required, StringLength(10)]
+		public string MaTaiXe { get; set; }
+		[Required, StringLength(12)]
+		public string BienSoXe { get; set; }
+		public int SoGhe { get; set; }
+		public int GiaVe { get; set; }
+		//[Required, StringLength(20)]
+		//public string LoaiXe { get; set; }
 
-		public List<XeKhach> XeKhachList { get; set; }
+		public TaiXe TaiXe { get; set; }
+		public NhaXe NhaXe { get; set; }
+		public List<XeKhachDiemDung> DiemDungList { get; set; }
 	}
+
+	public class GiaoDich
+	{
+		[Key, StringLength(10)]
+		public string MaGiaoDich { get; set; }
+		[Required, StringLength(10)]
+		public string MaNhaXe { get; set; }
+		[Required, DataType(DataType.DateTime)]
+		public DateTime NgayGiaoDich { get; set; }
+
+		public NhaXe NhaXe { get; set; }
+	}
+
+	public class ViTroDo
+	{
+		[Key, StringLength(10)]
+		public string MaViTri { get; set; }
+	}
+
+	public class TTBenXe
+	{
+		[Key]
+		public int Stt { get; set; }
+		[Required, StringLength(10)]
+		public string MaXeKhach { get; set; }
+		[Required, StringLength(10)]
+		public string MaViTri { get; set; }
+		[DataType(DataType.DateTime)]
+		public DateTime GioNhapBen { get; set; }
+
+		public XeKhach XeKhach { get; set; }
+		public ViTroDo ViTroDo { get; set; }
+	}
+
+	public class LichSuVaoRa
+	{
+		[Key]
+		public int Stt { get; set; }
+		[Required, StringLength(10)]
+		public string MaXeKhach { get; set; }
+		[Required, StringLength(10)]
+		public string MaViTri { get; set; }
+		public bool VaoBen { get; set; }
+		[DataType(DataType.DateTime)]
+		public DateTime ThoiDiem { get; set; }
+
+		public XeKhach XeKhach { get; set; }
+		public ViTroDo ViTroDo { get; set; }
+	}
+
 	public class DiemDung
 	{
 		[Key, StringLength(10)]
@@ -106,34 +178,14 @@ namespace QuanLyBenXeWebApp.Models
 			return builder.ToString();
 		}
 	}
-	public class XeKhach
-	{
-		[Key, StringLength(10)]
-		public string MaXeKhach { get; set; }
-		[StringLength(10)]
-		public string MaNhaXe { get; set; }
-		[StringLength(10)]
-		public string MaTaiXe { get; set; }
-		[StringLength(12)]
-		public string BienSoXe { get; set; }
-		public int SoGhe { get; set; }
-		public int GiaVe { get; set; }
-		[StringLength(20)]
-		public string LoaiXe { get; set; }
-		[DataType(DataType.DateTime)]
-		public DateTime GiaoDichCuoi { get; set; }
 
-		public TaiXe TaiXe { get; set; }
-		public NhaXe NhaXe { get; set; }
-		public List<XeKhachDiemDung> DiemDungList { get; set; }
-	}
 	public class XeKhachDiemDung
 	{
 		[Key]
 		public int Stt { get; set; }
-		[StringLength(10)]
+		[Required, StringLength(10)]
 		public string MaXeKhach { get; set; }
-		[StringLength(10)]
+		[Required, StringLength(10)]
 		public string MaDiemDung { get; set; }
 		public TimeSpan GioDiKhoiDN { get; set; }
 		public TimeSpan TGDCkhoiDN{ get; set; }
@@ -143,25 +195,7 @@ namespace QuanLyBenXeWebApp.Models
 		public XeKhach XeKhach { get; set; }
 		public DiemDung DiemDung { get; set; }
 	}
-	public class TTBenXe
-	{
-		[Key]
-		public int Stt { get; set; }
-		[StringLength(10)]
-		public string MaXeKhach { get; set; }
-		[StringLength(10)]
-		public string MaViTri { get; set; }
-		[DataType(DataType.DateTime)]
-		public DateTime GioNhapBen { get; set; }
-
-		public XeKhach XeKhach { get; set; }
-		public ViTroDo ViTroDo { get; set; }
-	}
-	public class ViTroDo
-	{
-		[Key, StringLength(10)]
-		public string MaViTri { get; set; }
-	}
+	
 	[NotMapped]
 	public class ChuyenDi
 	{
@@ -174,7 +208,7 @@ namespace QuanLyBenXeWebApp.Models
 		public DateTime NgayKhoiHanh { get; set; }
 		//nullable information
 		public string TenNhaXe { get; set; }
-		public string LoaiXe { get; set; }
+		public int? SoGhe { get; set; }
 		public TimeSpan? ThoiGianDiChuyenMax { get; set; }
 		public int? GiaVeMax { get; set; }
 		

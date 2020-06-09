@@ -10,7 +10,7 @@ namespace QuanLyBenXeWebApp.Models
 		public string MaXeKhach { get; set; }
 		public string TenNhaXe { get; set; }
 		public string MaNhaXe { get; set; }
-		public string LoaiXe { get; set; }
+		public int SoGhe { get; set; }
 		public string TenTaiXe { get; set; }
 		public string MaTaiXe { get; set; }
 		public string DiemXuatPhat { get; set; }
@@ -25,7 +25,8 @@ namespace QuanLyBenXeWebApp.Models
 			MaXeKhach = xeKhach.MaXeKhach;
 			TenNhaXe = xeKhach.NhaXe.TenNhaXe;
 			MaNhaXe = xeKhach.NhaXe.MaNhaXe;
-			LoaiXe = xeKhach.LoaiXe;
+			SoGhe = xeKhach.SoGhe;
+			//LoaiXe = xeKhach.LoaiXe;
 			TenTaiXe = xeKhach.TaiXe.ToString();
 			MaTaiXe = xeKhach.TaiXe.MaTaiXe;
 			GiaVe = xeKhach.GiaVe;

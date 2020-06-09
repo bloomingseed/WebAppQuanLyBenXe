@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 using QuanLyBenXeWebApp.Models;
 
 namespace QuanLyBenXeWebApp
@@ -33,6 +36,29 @@ namespace QuanLyBenXeWebApp
 			});
 
 			services.AddDbContext<BenXeDaNangContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+			//add identity
+			services.AddIdentity<QuanTriVien, IdentityRole>(options =>
+			{
+				options.Password.RequireDigit = false;
+				options.Password.RequireNonAlphanumeric = false;
+				options.Password.RequiredLength = 4;
+				options.Password.RequireUppercase = false;
+			})
+				.AddEntityFrameworkStores<BenXeDaNangContext>();
+
+			services.AddAuthentication().AddCookie(options =>
+			{
+				options.Cookie.Name = "UserBenXeDN";
+				options.LoginPath = "/account/login";
+				options.AccessDeniedPath = "/account/denied";
+			});
+
+			services.AddAuthorization(options =>
+			{
+				options.AddPolicy("QTTTGiaoDich", policy => policy.RequireRole("QTVGiaoDich"));
+				options.AddPolicy("QTTTNhaXe", policy => policy.RequireAssertion(context => context.User.IsInRole("QTVGiaoDich")||context.User.IsInRole("QTVNhaXe")));
+				options.AddPolicy("QTTTVaoRa", policy => policy.RequireAssertion(context=>context.User.IsInRole("QTVGiaoDich")||context.User.IsInRole("QTVVaoRa")));
+			});
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}
@@ -51,7 +77,13 @@ namespace QuanLyBenXeWebApp
 
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
+			//enablle authenticating
+			//app.UseCookieAuthentication(new CookieAuthenticationOptions()
+			//{
 
+			//})
+			app.UseAuthentication();
+			
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(

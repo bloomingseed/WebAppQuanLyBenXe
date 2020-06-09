@@ -50,7 +50,7 @@ function searchBusesAjax() {
 		};
 	if ($("#toogle").hasClass("shownangcao")) {
 		var nhaXe = $("#input-bus").val(),
-			loaiXe = $("#input-type").val(),
+			soGhe = $("#input-type").val(),
 			tg = $("#input-interval").val(),
 			giaVe = $("#input-cost").val();
 		args.TenNhaXe = nhaXe;
@@ -108,7 +108,7 @@ function renderXeKhachJson(jsonArray, jResHolder) {
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Loại xe: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(xeKhach.loaiXe));
+			.append($('<span style="font-size: 16px"></span>').html(""+xeKhach.soGhe+" chỗ"));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Điểm đón khách: &nbsp;")

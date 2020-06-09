@@ -1,0 +1,53 @@
+﻿@model LoginViewModel
+@{
+	ViewData["Title"] = "Đăng nhập quản trị viên";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="wrap-admin container-fluid">
+    <div class="opacity-background">
+
+    </div>
+    <div class="login-block">
+        <h3 class="login-title">Đăng nhập tài khoản quản trị viên</h3>
+            <section>
+				<form id="account" method="post">
+					<div class="form-group">
+						<label style="color:white!important;">Ký danh:</label>
+						<input type="text" name="UserName" asp-for=UserName />
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label style="color:white!important;">Mật khẩu:</label>
+						<input type="password" class="form-control" name="Password" asp-for=Password>
+						<span asp-validation-for=Password class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label style="color:white!important;">Nhập lại mật khẩu:</label>
+						<input type="password" class="form-control" name="ConfirmPassword" asp-for=ConfirmPassword />
+						<span asp-validation-for=ConfirmPassword class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label style="color:white!important;">Ghi nhớ đăng nhập:</label>
+						@Html.CheckBoxFor(m => m.RememberMe)
+						@Html.LabelFor(m => m.RememberMe)
+					</div>
+					<div class="form-group" style="padding:20px 20px;">
+						<button type="submit">Đăng nhập</button>
+					</div>
+				</form>
+            </section>
+    </div>
+    <div class="login-footer">
+        <div class="container">
+            <div class="row">
+                <span class="col-xl-12 col-md-12 col-sm-12 col-lg-12 col-12 text-center">©2020 by TeamSE12</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

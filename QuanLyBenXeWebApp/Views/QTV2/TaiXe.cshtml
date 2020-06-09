@@ -1,0 +1,34 @@
+﻿@model TaiXe[]
+@{
+	Layout = "~/Views/QTV2/_Qtv2Layout.cshtml";
+	ViewData["Title"] = "Tài xế nhà xe " + ViewData["TenNhaXe"];
+}
+<h1>Chỉnh sửa thông tin tài xế</h1>
+
+<div class="container">
+	<table id="data-grid" class="table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">Mã tài xế</th>
+				<th scope="col">Họ, tên đệm</th>
+				<th scope="col">Tên</th>
+				<th scope="col">Nam giới</th>
+				<th scope="col">Nơi sinh</th>
+				<th scope="col">Số điện thoại</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(TaiXe tx in Model)
+			{
+			<tr>
+				<td><input type="text" value="@tx.MaTaiXe"/></td>
+				<td><input type="text" value="@tx.HoDem"/></td>
+				<td><input type="text" value="@tx.Ten"/></td>
+				<td><input type="checkbox" checked="@tx.NamGioi"/></td>
+				<td><input type="text" value="@tx.NoiSinh"/></td>
+				<td><input type="text" value="@tx.Sdt"/></td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>

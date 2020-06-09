@@ -1,0 +1,35 @@
+﻿@model XeKhach[]
+@{
+	Layout = "~/Views/QTV2/_Qtv2Layout.cshtml";
+	ViewData["Title"] = "Xe khách nhà xe " + ViewData["TenNhaXe"];
+}
+<h3>Chỉnh sửa thông tin xe khách</h3>
+<div class="container">
+	<form method="post" asp-action="update">
+		<table id="xekhach-datagrid" class="table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Mã xe khách</th>
+					<th scope="col">Mã nhà xe</th>
+					<th scope="col">Mã tài xế</th>
+					<th scope="col">Biển số xe</th>
+					<th scope="col">Số ghế</th>
+					<th scope="col">Giá vé</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (XeKhach xk in Model)
+				{
+				<tr>
+					<td><input type="text" value="@xk.MaXeKhach" /></td>
+					<td><input type="text" value="@xk.MaNhaXe" /></td>
+					<td><input type="text" value="@xk.MaTaiXe" /></td>
+					<td><input type="text" value="@xk.BienSoXe" /></td>
+					<td><input type="number" value="@xk.SoGhe" /></td>
+					<td><input type="number" value="@xk.GiaVe" min="50000" max="500000" step="50000" /></td>
+				</tr>
+				}
+			</tbody>
+		</table>
+	</form>
+</div>

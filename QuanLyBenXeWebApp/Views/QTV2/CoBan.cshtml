@@ -1,0 +1,39 @@
+﻿@model NhaXe
+@{
+	Layout = "~/Views/QTV2/_Qtv2Layout.cshtml";
+	ViewData["Title"] = "Thông tin nhà xe " + ViewData["TenNhaXe"];
+}
+
+<h3>Chỉnh sửa thông tin cơ bản</h3>
+<div class="container">
+	<form method="post" asp-action="coban">
+		<table>
+			<tr>
+				<td><label>Tên nhà xe</label></td>
+				<td><input asp-for=TenNhaXe type="text" value="@Model.TenNhaXe" /></td>
+				<td><span asp-validation-for=TenNhaXe></span></td>
+			</tr>
+			<tr>
+				<td><label>Số lượng xe</label></td>
+				<td><input asp-for=SoLuongXe type="number" value="@Model.SoLuongXe" /></td>
+				<td><span asp-validation-for=SoLuongXe></span></td>
+			</tr>
+			<tr>
+				<td><label>Số điện thoại</label></td>
+				<td><input asp-for=Sdt type="text" value="@Model.Sdt" /></td>
+				<td><span asp-validation-for=Sdt></span></td>
+			</tr>
+			<tr>
+				<td><label>Màu biểu tượng</label></td>
+				<td><input asp-for=MauBieuTuong type="color" value="@Model.MauBieuTuong" /></td>
+				<td><span asp-validation-for=MauBieuTuong></span></td>
+			</tr>
+			<tr>
+				<td><label>Địa chỉ</label></td>
+				<td><input asp-for=DiaChi type="text" value="@Model.DiaChi" /></td>
+				<td><span asp-validation-for=DiaChi></span></td>
+			</tr>
+		</table>
+		<button type="submit">Cập nhật</button>
+	</form>
+</div>

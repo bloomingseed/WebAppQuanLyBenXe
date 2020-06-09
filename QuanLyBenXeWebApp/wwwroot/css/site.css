@@ -51,6 +51,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .form-control {
 	background: none;
+	color: white;
 }
 
 	.form-control:focus {
@@ -58,10 +59,10 @@ for details on configuring this project to bundle and minify static web assets. 
 		color: white;
 	}
 
-.remember,
+/*.remember,
 a {
 	color: white;
-}
+}*/
 
 	.remember input {
 		width: 20px;
@@ -258,7 +259,7 @@ a {
 				font-size: 14px;
 			}
 
-		#sidebar ul li a {
+		#sidebar ul li {
 			padding: 10px 0;
 			display: block;
 			color: rgba(255, 255, 255, 0.8);
