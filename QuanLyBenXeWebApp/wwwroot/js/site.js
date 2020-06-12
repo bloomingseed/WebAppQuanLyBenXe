@@ -10,6 +10,7 @@ $(document).ready(function () {
 		$("#toogle").toggleClass("shownangcao", 5000);
 	});
 	$("#button-find").click(function () {
+		//
 		var resHolder = $("#result-holder");
 		if (resHolder[0].hasChildNodes) {
 			resHolder.empty();
@@ -39,7 +40,7 @@ $(document).ready(function () {
 
 //get required buses from server
 function searchBusesAjax() {
-	debugger;
+	//
 	var diemDi = $("#input-start").val(),
 		diemDen = $("#input-stop").val(),
 		khoiHanh = $("#input-date").val(),
@@ -49,14 +50,15 @@ function searchBusesAjax() {
 			NgayKhoiHanh: khoiHanh
 		};
 	if ($("#toogle").hasClass("shownangcao")) {
+		
 		var nhaXe = $("#input-bus").val(),
 			soGhe = $("#input-type").val(),
 			tg = $("#input-interval").val(),
 			giaVe = $("#input-cost").val();
 		args.TenNhaXe = nhaXe;
-		args.LoaiXe = loaiXe;
+		args.SoGhe = soGhe;
 		args.ThoiGianDiChuyenMax = tg;
-		args.GiaVe = giaVe;
+		args.GiaVeMax = giaVe;
 	}
 
 	$.ajax({
@@ -90,7 +92,7 @@ function renderXeKhachJson(jsonArray, jResHolder) {
 		+ '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-xl-flex justify-content-xl-end"></div>',
 		ctnerHtml = "<div class = 'row border'></div>";
 	for (let xeKhach of jsonArray) {
-		debugger;
+		
 		var curr = $(ctnerHtml),
 			elArr = $.parseHTML(elHtml);
 		var i = 0;
