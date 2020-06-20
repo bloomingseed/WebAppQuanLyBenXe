@@ -1,0 +1,29 @@
+﻿@model GiaoDich[]
+@{
+	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
+	ViewData["Title"] = "Quản trị thông tin giao dịch";
+}
+
+<h1>Lịch sử thông tin giao dịch</h1>
+<div class="container">
+
+	<table id="data-grid" class="table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">Mã giao dịch</th>
+				<th scope="col">Mã nhà xe</th>
+				<th scope="col">Ngày giao dịch</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (GiaoDich giaoDich in Model)
+			{
+				<tr>
+					<td><input type="text" value="@giaoDich.MaGiaoDich" /></td>
+					<td><input type="text" value="@giaoDich.MaNhaXe" /></td>
+					<td><input type="text" value="@giaoDich.NgayGiaoDich" /></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

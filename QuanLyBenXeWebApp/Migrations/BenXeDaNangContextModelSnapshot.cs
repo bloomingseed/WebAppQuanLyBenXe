@@ -359,7 +359,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     b.ToTable("TaiXe");
                 });
 
-            modelBuilder.Entity("QuanLyBenXeWebApp.Models.ViTroDo", b =>
+            modelBuilder.Entity("QuanLyBenXeWebApp.Models.ViTriDo", b =>
                 {
                     b.Property<string>("MaViTri")
                         .ValueGeneratedOnAdd()
@@ -367,7 +367,7 @@ namespace QuanLyBenXeWebApp.Migrations
 
                     b.HasKey("MaViTri");
 
-                    b.ToTable("ViTroDo");
+                    b.ToTable("ViTriDo");
                 });
 
             modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhach", b =>
@@ -489,7 +489,7 @@ namespace QuanLyBenXeWebApp.Migrations
 
             modelBuilder.Entity("QuanLyBenXeWebApp.Models.LichSuVaoRa", b =>
                 {
-                    b.HasOne("QuanLyBenXeWebApp.Models.ViTroDo", "ViTroDo")
+                    b.HasOne("QuanLyBenXeWebApp.Models.ViTriDo", "ViTriDo")
                         .WithMany()
                         .HasForeignKey("MaViTri")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -509,7 +509,7 @@ namespace QuanLyBenXeWebApp.Migrations
 
             modelBuilder.Entity("QuanLyBenXeWebApp.Models.TTBenXe", b =>
                 {
-                    b.HasOne("QuanLyBenXeWebApp.Models.ViTroDo", "ViTroDo")
+                    b.HasOne("QuanLyBenXeWebApp.Models.ViTriDo", "ViTriDo")
                         .WithMany()
                         .HasForeignKey("MaViTri")
                         .OnDelete(DeleteBehavior.Cascade);

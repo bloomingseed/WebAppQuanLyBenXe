@@ -17,7 +17,7 @@ namespace QuanLyBenXeWebApp.Models
 		public DbSet<DiemDung> DiemDung { get; set; }
 		public DbSet<XeKhach> XeKhach { get; set; }
 		public DbSet<XeKhachDiemDung> XeKhachDiemDung { get; set; }
-		public DbSet<ViTroDo> ViTroDo { get; set; }
+		public DbSet<ViTriDo> ViTriDo { get; set; }
 		public DbSet<TTBenXe> TTBenXe { get; set; }
 		public DbSet<LichSuVaoRa> LichSuVaoRa { get; set; }
 		public DbSet<GiaoDich> GiaoDich { get; set; }
@@ -112,7 +112,7 @@ namespace QuanLyBenXeWebApp.Models
 		public NhaXe NhaXe { get; set; }
 	}
 
-	public class ViTroDo
+	public class ViTriDo
 	{
 		[Key, StringLength(10)]
 		public string MaViTri { get; set; }
@@ -130,7 +130,7 @@ namespace QuanLyBenXeWebApp.Models
 		public DateTime GioNhapBen { get; set; }
 
 		public XeKhach XeKhach { get; set; }
-		public ViTroDo ViTroDo { get; set; }
+		public ViTriDo ViTriDo { get; set; }
 	}
 
 	public class LichSuVaoRa
@@ -146,7 +146,7 @@ namespace QuanLyBenXeWebApp.Models
 		public DateTime ThoiDiem { get; set; }
 
 		public XeKhach XeKhach { get; set; }
-		public ViTroDo ViTroDo { get; set; }
+		public ViTriDo ViTriDo { get; set; }
 	}
 
 	public class DiemDung

@@ -17,7 +17,12 @@ namespace QuanLyBenXeWebApp.Controllers
 		}
 		public IActionResult Index()
 		{
-			return View();
+			IndexViewModel model = new IndexViewModel()
+			{
+				DiemDungList = context.DiemDung.ToArray(),
+				NhaXeList = context.NhaXe.ToArray()
+			};
+			return View(model);
 		}
 
 		public IActionResult Privacy()

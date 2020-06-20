@@ -41,8 +41,8 @@ namespace QuanLyBenXeWebApp.Models
 		public string UserName { get; set; }
 		[Required, StringLength(18)]
 		public string Password { get; set; }
-		[Compare("Password")]
-		public string ConfirmPassword { get; set; }
+		//[Compare("Password")]
+		//public string ConfirmPassword { get; set; }
 		public bool RememberMe { get; set; }
 		public string ReturnUrl { get; set; }
 	}

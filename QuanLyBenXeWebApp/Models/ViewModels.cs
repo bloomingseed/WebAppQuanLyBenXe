@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,5 +39,14 @@ namespace QuanLyBenXeWebApp.Models
 			ThoiDiemDen = thoiDiemDi.Add(tg);
 			ThoiGianDiChuyen = tg;			
 		}
+	}
+	public class IndexViewModel
+	{
+		public DiemDung[] DiemDungList { get; set; }
+		public NhaXe[] NhaXeList { get; set; }
+	}
+	public class TtDangNhapViewModel
+	{
+		Dictionary<QuanTriVien, string> Qtv_Role { get; set; }
 	}
 }

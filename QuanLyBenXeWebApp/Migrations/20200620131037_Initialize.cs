@@ -72,14 +72,14 @@ namespace QuanLyBenXeWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ViTroDo",
+                name: "ViTriDo",
                 columns: table => new
                 {
                     MaViTri = table.Column<string>(maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ViTroDo", x => x.MaViTri);
+                    table.PrimaryKey("PK_ViTriDo", x => x.MaViTri);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,7 +108,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 10, nullable: false),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 30, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
@@ -286,9 +286,9 @@ namespace QuanLyBenXeWebApp.Migrations
                 {
                     table.PrimaryKey("PK_LichSuVaoRa", x => x.Stt);
                     table.ForeignKey(
-                        name: "FK_LichSuVaoRa_ViTroDo_MaViTri",
+                        name: "FK_LichSuVaoRa_ViTriDo_MaViTri",
                         column: x => x.MaViTri,
-                        principalTable: "ViTroDo",
+                        principalTable: "ViTriDo",
                         principalColumn: "MaViTri",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -313,9 +313,9 @@ namespace QuanLyBenXeWebApp.Migrations
                 {
                     table.PrimaryKey("PK_TTBenXe", x => x.Stt);
                     table.ForeignKey(
-                        name: "FK_TTBenXe_ViTroDo_MaViTri",
+                        name: "FK_TTBenXe_ViTriDo_MaViTri",
                         column: x => x.MaViTri,
-                        principalTable: "ViTroDo",
+                        principalTable: "ViTriDo",
                         principalColumn: "MaViTri",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -484,7 +484,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "ViTroDo");
+                name: "ViTriDo");
 
             migrationBuilder.DropTable(
                 name: "DiemDung");

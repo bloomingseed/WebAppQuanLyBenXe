@@ -12,21 +12,16 @@
     <div class="login-block">
         <h3 class="login-title">Đăng nhập tài khoản quản trị viên</h3>
             <section>
-				<form id="account" method="post">
+				<form asp-action="login" method="post">
 					<div class="form-group">
 						<label style="color:white!important;">Ký danh:</label>
 						<input type="text" name="UserName" asp-for=UserName />
-						<span asp-validation-for="Password" class="text-danger"></span>
+						<span asp-validation-for="UserName" class="text-danger"></span>
 					</div>
 					<div class="form-group">
 						<label style="color:white!important;">Mật khẩu:</label>
 						<input type="password" class="form-control" name="Password" asp-for=Password>
 						<span asp-validation-for=Password class="text-danger"></span>
-					</div>
-					<div class="form-group">
-						<label style="color:white!important;">Nhập lại mật khẩu:</label>
-						<input type="password" class="form-control" name="ConfirmPassword" asp-for=ConfirmPassword />
-						<span asp-validation-for=ConfirmPassword class="text-danger"></span>
 					</div>
 					<div class="form-group">
 						<label style="color:white!important;">Ghi nhớ đăng nhập:</label>

@@ -39,3 +39,12 @@ C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV2\TaiXe.g.cshtml.cs
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV2\XeKhach.g.cshtml.cs
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV2\_Qtv2Layout.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\_Qtv0Layout.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\Index.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\LsGiaoDich.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\LsVaoRa.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\NhaXe.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\Qtv.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\TtBenXe.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\TtDangNhap.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\ViTriDo.g.cshtml.cs

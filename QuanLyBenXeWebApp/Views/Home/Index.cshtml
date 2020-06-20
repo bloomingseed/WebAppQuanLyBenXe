@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IndexViewModel
+@{
 	ViewData["Title"] = "Trang chủ";
 }
 @* <link rel="stylesheet" href="~/wwwroot/css/StyleSheet.css"/>*@
@@ -15,11 +16,11 @@
 								<label for="" class="label">Từ</label>
 								<input id="input-start"  class="form-control mx-auto my-auto" placeholder="điểm bắt đầu" list="start-points" required>
 								<datalist id="start-points">
-									<option value="Đà Nẵng">Đà Nẵng</option>
-									<option value="Quảng Nam">Quảng Nam</option>
-									<option value="Gia Lai">Gia Lai</option>
-									<option value="Đồng Nai">Đồng Nai</option>
-								</datalist>
+									@foreach(DiemDung diemDung in Model.DiemDungList)
+									{
+										<option>@(diemDung.TenTinhTp)</option>
+									}
+								</datalist>foreach
 							</div>
 						</div>
 						<div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -27,10 +28,10 @@
 								<label for="" class="label">Đến</label>
 								<input id="input-stop" class="form-control mx-auto my-auto" name="" placeholder="Điểm dừng" list="stop-points" required>
 								<datalist id="stop-points">
-									<option value="Đà Nẵng">Đà Nẵng</option>
-									<option value="Quảng Nam">Quảng Nam</option>
-									<option value="Gia Lai">Gia Lai</option>
-									<option value="Đồng Nai">Đồng Nai</option>
+									@foreach (DiemDung diemDung in Model.DiemDungList)
+									{
+										<option>@(diemDung.TenTinhTp)</option>
+									}
 								</datalist>
 							</div>
 						</div>
@@ -47,11 +48,11 @@
 										<label for="" class="label">Nhà Xe</label>
 										<select id="input-bus" class="form-control mx-auto my-auto" name="" >
 											<option></option>
-											<option>Ong Phuc</option>
-											<option>Ong Tung</option>
-											<option>Ong Nghia</option>
-											<option>Ong Tho</option>
-										</select>
+											@foreach(NhaXe nhaXe in Model.NhaXeList)
+											{
+												<option>@(nhaXe.TenNhaXe)</option>
+											}
+										</select>foreach
 									</div>
 								</div>
 								<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">

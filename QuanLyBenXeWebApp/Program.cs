@@ -27,17 +27,17 @@ namespace QuanLyBenXeWebApp
 			//	var userManager = services.ServiceProvider.GetRequiredService<UserManager<QuanTriVien>>();
 			//	var roleManager = services.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-			//	IdentityRole gd, nx, vr;
-			//	gd = new IdentityRole("QTVGiaoDich");
+			//	IdentityRole vp, nx, vr;
+			//	vp = new IdentityRole("QtvVanPhong");
 			//	vr = new IdentityRole("QTVVaoRa");
-			//	nx = new IdentityRole("QTVNhaXe");
+			//	nx = new IdentityRole("QtvNhaXe");
 
 
-			//	if (!dbContext.Roles.Any(role=>role.Name == "QTVGiaoDich"))
-			//		roleManager.CreateAsync(gd).GetAwaiter().GetResult();
-			//	if (!dbContext.Roles.Any(role => role.Name == "QTVVaoRa"))
+			//	if (!dbContext.Roles.Any(role => role.Name == "QtvVanPhong"))
+			//		roleManager.CreateAsync(vp).GetAwaiter().GetResult();
+			//	if (!dbContext.Roles.Any(role => role.Name == "QtvVaoRa"))
 			//		roleManager.CreateAsync(vr).GetAwaiter().GetResult();
-			//	if (!dbContext.Roles.Any(role => role.Name == "QTVNhaXe"))
+			//	if (!dbContext.Roles.Any(role => role.Name == "QtvNhaXe"))
 			//		roleManager.CreateAsync(nx).GetAwaiter().GetResult();
 
 
@@ -54,29 +54,30 @@ namespace QuanLyBenXeWebApp
 			//		};
 			//		string pwd = "se12";
 			//		var result = userManager.CreateAsync(adminUser, pwd).GetAwaiter().GetResult();
-			//		userManager.AddToRoleAsync(adminUser, gd.Name).GetAwaiter().GetResult();
+			//		userManager.AddToRoleAsync(adminUser, vp.Name).GetAwaiter().GetResult();
 			//	}
-			//	if (!dbContext.Users.Any(user => user.Id == "QT00000002"))
-			//	{
-			//		var adminUser = new QuanTriVien
-			//		{
-			//			Id = "QT00000002",
-			//			MaNhaXe="NX00000001",
-			//			UserName = "admin@nhaxeA",
-			//			HoDem = "Trần Đinh Phước",
-			//			Ten = "Nghĩa",
-			//			NamGioi = true,
-			//			PhoneNumber = "19009001"
-			//		};
-			//		string pwd = "se12";
-			//		var result = userManager.CreateAsync(adminUser, pwd).GetAwaiter().GetResult();
-			//		userManager.AddToRoleAsync(adminUser, nx.Name).GetAwaiter().GetResult();
-			//	}
+			//	//if (!dbContext.Users.Any(user => user.Id == "QT00000002"))
+			//	//{
+			//	//	var adminUser = new QuanTriVien
+			//	//	{
+			//	//		Id = "QT00000002",
+			//	//		MaNhaXe = "NX00000001",
+			//	//		UserName = "admin@nhaxeA",
+			//	//		HoDem = "Trần Đinh Phước",
+			//	//		Ten = "Nghĩa",
+			//	//		NamGioi = true,
+			//	//		PhoneNumber = "19009001"
+			//	//	};
+			//	//	string pwd = "se12";
+			//	//	var result = userManager.CreateAsync(adminUser, pwd).GetAwaiter().GetResult();
+			//	//	userManager.AddToRoleAsync(adminUser, nx.Name).GetAwaiter().GetResult();
+			//	//}
 
 
+			//	//}
+				#endregion
+				host.Run();
 			//}
-			#endregion
-			host.Run();
 		}
 
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

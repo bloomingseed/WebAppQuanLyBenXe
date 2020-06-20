@@ -12,12 +12,15 @@ namespace QuanLyBenXeWebApp.Controllers
     public class AccountController : Controller
     {
 		private SignInManager<QuanTriVien> signInManager;
+		private RoleManager<IdentityRole> roleManager;
 		
 		public AccountController(
-			SignInManager<QuanTriVien> signInMng
+			SignInManager<QuanTriVien> signInMng,
+			RoleManager<IdentityRole> roleMng
 			)
 		{
 			signInManager = signInMng;
+			roleManager = roleMng;
 		}
 
         public IActionResult Login()
@@ -38,6 +41,7 @@ namespace QuanLyBenXeWebApp.Controllers
 				var res = await signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password, loginViewModel.RememberMe, false);
 				if (res.Succeeded)
 				{
+					
 					if (!String.IsNullOrEmpty(loginViewModel.ReturnUrl))
 						return Redirect(loginViewModel.ReturnUrl);
 					return RedirectToAction("Index", "Home");
