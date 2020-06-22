@@ -17,6 +17,9 @@ $(document).ready(function () {
 		}
 		searchBusesAjax();
 	});
+	$("#data-grid tr").click(function () { updateSelectedRow(this, 1); });
+	$("#vtd-data-grid tr").click(function () { updateSelectedRow(this, 0); });
+	registerQtv0EventHandlers()
 });
 (function ($) {
 
@@ -75,6 +78,23 @@ function searchBusesAjax() {
 	});
 }
 
+//
+function updateSelectedRow(row, start) {
+	//debugger;
+		let selectedRow = $(".selected-row");
+		if (selectedRow.length != 0) {
+			selectedRow.toggleClass("selected-row")
+			let selectedCols = selectedRow.find("input")
+			for (let i = start; i < selectedCols.length; ++i)
+				selectedCols[i].setAttribute("readonly","")
+
+		}
+	selectedRow = $(row);
+	selectedRow.toggleClass("selected-row")
+	let selectedCols = selectedRow.find("input")
+	for (let i = start; i < selectedCols.length; ++i)
+		selectedCols[i].removeAttribute("readonly")
+}
 
 //render the returned xe khach json object
 function renderXeKhachJson(jsonArray, jResHolder) {

@@ -47,6 +47,6 @@ namespace QuanLyBenXeWebApp.Models
 	}
 	public class TtDangNhapViewModel
 	{
-		Dictionary<QuanTriVien, string> Qtv_Role { get; set; }
+		public Dictionary<QuanTriVien, string> Qtv_Role { get; set; }
 	}
 }

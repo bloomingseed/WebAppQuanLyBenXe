@@ -320,3 +320,6 @@ a[data-toggle="collapse"] {
 .view-container{
 	margin: 56px;
 }
+.selected-row{
+	background-color: #ddd;
+}

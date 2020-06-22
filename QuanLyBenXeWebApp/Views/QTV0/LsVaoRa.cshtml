@@ -1,8 +1,57 @@
-﻿
+﻿@model LichSuVaoRa[]
 @{
 	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
-	ViewData["Title"] = "Quản trị thông tin giao dịch";
+	ViewData["Title"] = "Xem, xoá lịch sử vào-ra bến xe";
 }
 
-<h1>Welcome</h1>
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<form method="post">
+		<div class="text-danger validation-summary"></div>
+		<div class="input-group">
+			<table id="data-grid" class="table-bordered">
+				<thead>
+					<tr>
+						<th scope="col">Số thứ tự</th>
+						<th scope="col">Mã xe khách</th>
+						<th scope="col">Mã vị trí</th>
+						<th scope="col">Vào bến</th>
+						<th scope="col">Thời điểm</th>
 
+					</tr>
+				</thead>
+				<tbody>
+					@foreach(LichSuVaoRa vaoRa in Model)
+					{
+					<tr>
+						<td><input readonly type="text" value="@vaoRa.Stt" /></td>
+						<td><input readonly type="text" value="@vaoRa.MaXeKhach" /></td>
+						<td><input readonly type="text" value="@vaoRa.MaViTri" /></td>
+						<td>
+							@if (vaoRa.VaoBen)
+							{
+								<input readonly type="checkbox" checked />
+							}
+							else
+							{
+								<input readonly type="checkbox" />
+							}
+						</td>
+						<td><input type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" /></td>
+					</tr>
+					}
+					<tr>
+						<td><input readonly type="text" value="@ViewBag.NextStt" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="checkbox" checked /></td>
+						<td><input readonly disabled type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="input-group">
+			<button type="button" id="delete-lsvr">Xoá</button>
+		</div>
+	</form>
+</div>

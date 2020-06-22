@@ -1,29 +1,48 @@
 ﻿@model GiaoDich[]
 @{
 	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
-	ViewData["Title"] = "Quản trị thông tin giao dịch";
+	ViewData["Title"] = "CRUD thông tin giao dịch";
 }
 
-<h1>Lịch sử thông tin giao dịch</h1>
+<h1>@ViewData["Title"]</h1>
 <div class="container">
-
-	<table id="data-grid" class="table-bordered">
-		<thead>
-			<tr>
-				<th scope="col">Mã giao dịch</th>
-				<th scope="col">Mã nhà xe</th>
-				<th scope="col">Ngày giao dịch</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (GiaoDich giaoDich in Model)
+	<form method="post">
+		<div class="text-danger validation-summary"></div>
+		<div class="input-group">
+			<table id="data-grid" class="table-bordered">
+				<thead>
+					<tr>
+						<th scope="col">Mã giao dịch</th>
+						<th scope="col">Mã nhà xe</th>
+						<th scope="col">Ngày giao dịch</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (GiaoDich giaoDich in Model)
+					{
+						<tr>
+							<td><input readonly type="text" value="@giaoDich.MaGiaoDich" /></td>
+							<td><input readonly type="text" value="@giaoDich.MaNhaXe" /></td>
+							<td><input readonly type="date" value="@giaoDich.NgayGiaoDich.ToString("yyyy-MM-dd")" /></td>
+						</tr>
+					}
+					<tr>
+						<td><input readonly type="text" value="@ViewBag.NextGiaoDichId" /></td>
+						<td><input readonly type="text" value="" list="ma-nha-xe" /></td>
+						<td><input readonly type="date" value="@DateTime.Now.Date.ToString("yyyy-MM-dd")" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="input-group">
+			<button type="button" id="create-lsgd">Tạo mới</button>
+			<button type="button" id="delete-lsgd">Xoá</button>
+		</div>
+		<datalist id="ma-nha-xe">
+			@foreach (NhaXe nx in ViewBag.MaNhaXes)
 			{
-				<tr>
-					<td><input type="text" value="@giaoDich.MaGiaoDich" /></td>
-					<td><input type="text" value="@giaoDich.MaNhaXe" /></td>
-					<td><input type="text" value="@giaoDich.NgayGiaoDich" /></td>
-				</tr>
+				<option>@(nx.MaNhaXe)</option>
 			}
-		</tbody>
-	</table>
+		</datalist>
+	</form>
 </div>

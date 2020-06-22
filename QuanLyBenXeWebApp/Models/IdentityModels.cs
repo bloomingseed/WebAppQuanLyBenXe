@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace QuanLyBenXeWebApp.Models
 {
@@ -34,7 +35,9 @@ namespace QuanLyBenXeWebApp.Models
 			} }
 
 		public NhaXe NhaXe { get; set; }
+		//public static string[] Roles = { "QtvVanPhong", "QtvVaoRa", "QtvNhaXe" };
 	}
+
 	public class LoginViewModel
 	{
 		[Required, StringLength(30)]

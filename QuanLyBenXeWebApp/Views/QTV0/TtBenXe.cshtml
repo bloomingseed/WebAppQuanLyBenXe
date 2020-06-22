@@ -1,8 +1,34 @@
-﻿
+﻿@model TTBenXe[]
 @{
 	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
-	ViewData["Title"] = "Quản trị thông tin giao dịch";
+	ViewData["Title"] = "Xem, xoá lịch sử vào-ra bến xe";
 }
 
-<h1>Welcome</h1>
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<div class="input-group">
+		<table id="data-grid" class="table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Số thứ tự</th>
+					<th scope="col">Mã xe khách</th>
+					<th scope="col">Mã vị trí</th>
+					<th scope="col">Giờ nhập bến</th>
 
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (TTBenXe tt in Model)
+				{
+					<tr>
+						<td><input readonly type="text" value="@tt.Stt" /></td>
+						<td><input readonly type="text" value="@tt.MaXeKhach" /></td>
+						<td><input readonly type="text" value="@tt.MaViTri" /></td>
+						<td><input readonly type="datetime-local" value="@tt.GioNhapBen" /></td>
+
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

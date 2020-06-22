@@ -1,8 +1,94 @@
-﻿
+﻿@model Dictionary<QuanTriVien,string>
 @{
 	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
 	ViewData["Title"] = "Quản trị thông tin giao dịch";
 }
 
-<h1>Welcome</h1>
+<h1>Chỉnh sửa thông tin đăng nhập</h1>
+
+<div class="container">
+	<form method="post">
+		<div class="text-danger validation-summary"></div>
+		<div class="input-group">
+			<table id="data-grid" class="table-bordered">
+				<thead>
+					<tr>
+						<th scope="col">Mã quản trị viên</th>
+						<th scope="col">Mã nhà xe</th>
+						<th scope="col">Họ, đệm</th>
+						<th scope="col">Tên quản trị viên</th>
+						<th scope="col">Nam giới</th>
+						<th scope="col">Nơi sinh</th>
+						<th scope="col">Số điện thoại</th>
+						<th scope="col">Tên đăng nhập</th>
+						<th scope="col">Mật khẩu</th>
+						<th scope="col">Vai trò</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var key in Model.Keys)
+					{
+						<tr>
+							<td><input readonly type="text" value="@key.Id" /></td>
+							<td><input readonly type="text" value="@key.MaNhaXe" /></td>
+							<td><input readonly type="text" value="@key.HoDem" /></td>
+							<td><input readonly type="text" value="@key.Ten" /></td>
+							<td>
+								@if (key.NamGioi)
+								{
+									<input readonly type="checkbox" checked />
+								}
+								else
+								{
+									<input readonly type="checkbox" />
+								}
+							</td>
+							<td><input readonly type="text" value="@key.NoiSinh" /></td>
+							<td><input readonly type="text" value="@key.PhoneNumber" /></td>
+							<td><input readonly type="text" value="@key.UserName" /></td>
+							<td><input readonly type="text" value="@key.PasswordHash" /></td>
+							<td><input readonly type="text" value="@Model[key]" list="role-list" /></td>
+						</tr>
+					}
+					<tr>
+						<td><input readonly type="text" value="@ViewBag.NextQtvId" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="checkbox" checked /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" list="role-list" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="input-group">
+			<div class="input-group">
+				<label>Mật khẩu:</label>
+				<input id="for-password" type="text" value="" />
+			</div>
+			<div class="input-group">
+				<button type="button" id="create-ttdn">Tạo mới</button>
+				<button type="button" id="update-ttdn">Cập nhật</button>
+				<button type="button" id="delete-ttdn">Xoá</button>
+				<button type="button" id="changepassword">Reset mật khẩu</button>
+			</div>
+		</div>
+		<datalist id="role-list">
+			@foreach (IdentityRole role in ViewBag.Roles)
+			{
+				<option>@(role.Name)</option>
+			}
+		</datalist>
+		<datalist id="ma-nha-xe">
+			@foreach (NhaXe nx in ViewBag.MaNhaXes)
+			{
+				<option>@(nx.MaNhaXe)</option>
+			}
+		</datalist>
+	</form>
+</div>
 

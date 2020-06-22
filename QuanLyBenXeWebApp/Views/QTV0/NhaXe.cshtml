@@ -1,8 +1,56 @@
-﻿
+﻿@model NhaXe[]
 @{
 	Layout = "~/Views/Qtv0/_Qtv0Layout.cshtml";
-	ViewData["Title"] = "Quản trị thông tin giao dịch";
+	ViewData["Title"] = "CRUD thông tin nhà xe";
 }
 
-<h1>Welcome</h1>
-
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<form method="post">
+		<div class="text-danger validation-summary"></div>
+		<div class="input-group">
+			<table id="data-grid" class="table-bordered">
+				<thead>
+					<tr>
+						<th scope="col">Mã nhà xe</th>
+						<th scope="col">Tên nhà xe</th>
+						<th scope="col">Số lượng xe</th>
+						<th scope="col">Số điện thoại</th>
+						<th scope="col">Màu biểu tượng</th>
+						<th scope="col">Địa chỉ</th>
+						<th scope="col">Ngày giao dịch cuối</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (NhaXe nhaXe in Model)
+					{
+					<tr>
+						<td><input readonly type="text" value="@nhaXe.MaNhaXe" /></td>
+						<td><input readonly type="text" value="@nhaXe.TenNhaXe" /></td>
+						<td><input readonly type="text" value="@nhaXe.SoLuongXe" /></td>
+						<td><input readonly type="text" value="@nhaXe.Sdt" /></td>
+						<td><input type="color" value="@nhaXe.MauBieuTuong" /></td>
+						<td><input readonly type="text" value="@nhaXe.DiaChi" /></td>
+						
+						<td><input readonly type="date" value="@nhaXe.GiaoDichCuoi.ToString("yyyy-MM-dd")" /></td>
+					</tr>
+					}
+					<tr>
+						<td><input readonly type="text" value="@ViewBag.NextNhaXeId" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input type="color" value="#000000" /></td>
+						<td><input readonly type="text" value="" /></td>
+						<td><input readonly type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="input-group">
+			<button type="button" id="create-nx">Tạo mới</button>
+			<button type="button" id="update-nx">Cập nhật</button>
+			<button type="button" id="delete-nx">Xoá</button>
+		</div>
+	</form>
+</div>

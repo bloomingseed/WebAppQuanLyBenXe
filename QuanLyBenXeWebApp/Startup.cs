@@ -44,7 +44,8 @@ namespace QuanLyBenXeWebApp
 				options.Password.RequiredLength = 4;
 				options.Password.RequireUppercase = false;
 			})
-				.AddEntityFrameworkStores<BenXeDaNangContext>();
+				.AddEntityFrameworkStores<BenXeDaNangContext>()
+				.AddDefaultTokenProviders();
 
 			services.AddAuthentication().AddCookie(options =>
 			{
