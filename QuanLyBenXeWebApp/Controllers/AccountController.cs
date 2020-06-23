@@ -46,6 +46,12 @@ namespace QuanLyBenXeWebApp.Controllers
 					var res = await signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password, loginViewModel.RememberMe, false);
 				if (res.Succeeded)
 				{
+<<<<<<< HEAD
+					
+					if (!String.IsNullOrEmpty(loginViewModel.ReturnUrl))
+						return Redirect(loginViewModel.ReturnUrl);
+					return RedirectToAction("Index", "QTV0");
+=======
 					QuanTriVien qtv = await userManager.FindByNameAsync(loginViewModel.UserName);
 					string qtvRole = (await userManager.GetRolesAsync(qtv)).FirstOrDefault();
 					if (qtvRole == null)
@@ -56,6 +62,7 @@ namespace QuanLyBenXeWebApp.Controllers
 						return RedirectToAction("Index", "qtv1");
 					if(qtvRole == "QtvNhaXe")
 						return RedirectToAction("Index", "qtv2");
+>>>>>>> 5a0ff736d6f940398243c7f9072ef06fb088d0d0
 				}
 			}
 			catch (Exception err)
