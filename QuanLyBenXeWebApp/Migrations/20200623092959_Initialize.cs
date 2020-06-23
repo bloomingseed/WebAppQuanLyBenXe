@@ -46,7 +46,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     TenNhaXe = table.Column<string>(maxLength: 40, nullable: false),
                     SoLuongXe = table.Column<int>(nullable: false),
                     Sdt = table.Column<string>(maxLength: 12, nullable: false),
-                    MauBieuTuong = table.Column<string>(maxLength: 9, nullable: false),
+                    MauBieuTuong = table.Column<string>(maxLength: 7, nullable: false),
                     DiaChi = table.Column<string>(maxLength: 60, nullable: false),
                     GiaoDichCuoi = table.Column<DateTime>(nullable: false)
                 },
@@ -62,7 +62,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     MaTaiXe = table.Column<string>(maxLength: 10, nullable: false),
                     HoDem = table.Column<string>(maxLength: 20, nullable: false),
                     Ten = table.Column<string>(maxLength: 10, nullable: false),
-                    NamGioi = table.Column<bool>(nullable: false),
+                    GioiTinh = table.Column<bool>(nullable: false),
                     NoiSinh = table.Column<string>(maxLength: 50, nullable: true),
                     Sdt = table.Column<string>(maxLength: 12, nullable: false)
                 },
@@ -108,7 +108,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 10, nullable: false),
-                    NormalizedUserName = table.Column<string>(maxLength: 30, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
@@ -124,7 +124,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
                     HoDem = table.Column<string>(maxLength: 20, nullable: false),
                     Ten = table.Column<string>(maxLength: 10, nullable: false),
-                    NamGioi = table.Column<bool>(nullable: false),
+                    GioiTinh = table.Column<bool>(nullable: false),
                     NoiSinh = table.Column<string>(maxLength: 40, nullable: true),
                     PhoneNumber = table.Column<string>(maxLength: 12, nullable: false)
                 },
@@ -327,7 +327,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "XeKhachDiemDung",
+                name: "XeKhach_DiemDung",
                 columns: table => new
                 {
                     Stt = table.Column<int>(nullable: false)
@@ -341,15 +341,15 @@ namespace QuanLyBenXeWebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_XeKhachDiemDung", x => x.Stt);
+                    table.PrimaryKey("PK_XeKhach_DiemDung", x => x.Stt);
                     table.ForeignKey(
-                        name: "FK_XeKhachDiemDung_DiemDung_MaDiemDung",
+                        name: "FK_XeKhach_DiemDung_DiemDung_MaDiemDung",
                         column: x => x.MaDiemDung,
                         principalTable: "DiemDung",
                         principalColumn: "MaDiemDung",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_XeKhachDiemDung_XeKhach_MaXeKhach",
+                        name: "FK_XeKhach_DiemDung_XeKhach_MaXeKhach",
                         column: x => x.MaXeKhach,
                         principalTable: "XeKhach",
                         principalColumn: "MaXeKhach",
@@ -437,13 +437,13 @@ namespace QuanLyBenXeWebApp.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_XeKhachDiemDung_MaDiemDung",
-                table: "XeKhachDiemDung",
+                name: "IX_XeKhach_DiemDung_MaDiemDung",
+                table: "XeKhach_DiemDung",
                 column: "MaDiemDung");
 
             migrationBuilder.CreateIndex(
-                name: "IX_XeKhachDiemDung_MaXeKhach_MaDiemDung_GioDiKhoiDN_GioDiToiDN_TGDCkhoiDN_TGDCtoiDN",
-                table: "XeKhachDiemDung",
+                name: "IX_XeKhach_DiemDung_MaXeKhach_MaDiemDung_GioDiKhoiDN_GioDiToiDN_TGDCkhoiDN_TGDCtoiDN",
+                table: "XeKhach_DiemDung",
                 columns: new[] { "MaXeKhach", "MaDiemDung", "GioDiKhoiDN", "GioDiToiDN", "TGDCkhoiDN", "TGDCtoiDN" },
                 unique: true);
         }
@@ -475,7 +475,7 @@ namespace QuanLyBenXeWebApp.Migrations
                 name: "TTBenXe");
 
             migrationBuilder.DropTable(
-                name: "XeKhachDiemDung");
+                name: "XeKhach_DiemDung");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

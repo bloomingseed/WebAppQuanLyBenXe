@@ -60,13 +60,13 @@ namespace QuanLyBenXeWebApp.Controllers
 			//dsDiemDungA
 			var dsDiemDungA = from stop in context.DiemDung where stop.TenTinhTp == diemDungA select stop;
 			//dsXeKhachA
-			var dsXK_DDA = from xk_dd in context.XeKhachDiemDung
+			var dsXK_DDA = from xk_dd in context.XeKhach_DiemDung
 							 from dd in dsDiemDungA
 							 where xk_dd.MaDiemDung == dd.MaDiemDung
 							 select xk_dd;
 			//filter
 			List<ChuyenDiViewModel> res = new List<ChuyenDiViewModel>();
-			foreach(XeKhachDiemDung xkdd in dsXK_DDA)
+			foreach(XeKhach_DiemDung xkdd in dsXK_DDA)
 			{
 				xkdd.XeKhach = context.XeKhach.Find(xkdd.MaXeKhach);
 				xkdd.XeKhach.NhaXe = context.NhaXe.Find(xkdd.XeKhach.MaNhaXe);

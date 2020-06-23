@@ -19,7 +19,9 @@ $(document).ready(function () {
 	});
 	$("#data-grid tr").click(function () { updateSelectedRow(this, 1); });
 	$("#vtd-data-grid tr").click(function () { updateSelectedRow(this, 0); });
+	$("#xk-data-grid tr").click(function () { updateSelectedRow(this, 2); });
 	registerQtv0EventHandlers()
+	registerQtv2EventHandlers()
 });
 (function ($) {
 

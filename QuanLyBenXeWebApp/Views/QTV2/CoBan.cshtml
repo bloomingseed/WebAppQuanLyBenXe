@@ -4,11 +4,14 @@
 	ViewData["Title"] = "Thông tin nhà xe " + ViewData["TenNhaXe"];
 }
 
-<h3>Chỉnh sửa thông tin cơ bản</h3>
+<h3>@ViewData["Title"]</h3>
 <div class="container">
-	<form method="post" asp-action="coban">
-		<p><span></span></p>
+	<form method="post" asp-action="updatecoban">
 		<table>
+			<tr>
+				<td><label>Mã nhà xe</label></td>
+				<td><input asp-for="MaNhaXe"  type="text" readonly value="@Model.MaNhaXe" /></td>
+			</tr>
 			<tr>
 				<td><label>Tên nhà xe</label></td>
 				<td><input asp-for=TenNhaXe type="text" value="@Model.TenNhaXe" /></td>
@@ -34,7 +37,11 @@
 				<td><input asp-for=DiaChi type="text" value="@Model.DiaChi" /></td>
 				<td><span asp-validation-for=DiaChi></span></td>
 			</tr>
+			<tr>
+				<td><label>Ngày thực hiện giao dịch cuối</label></td>
+				<td><input readonly type="date" asp-for="GiaoDichCuoi"  value="@Model.GiaoDichCuoi.ToString("yyyy-MM-dd")" /></td>
+			</tr>
 		</table>
-		<button>Cập nhật</button>
+		<button type="submit">Cập nhật</button>
 	</form>
 </div>

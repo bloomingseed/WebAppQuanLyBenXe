@@ -1,0 +1,74 @@
+﻿@model TtDangNhapViewModel
+@{
+    ViewData["Title"] = "Thay đổi thông tin đăng nhập";
+    Layout = "~/Views/QTV2/_Qtv2Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<form asp-action="ttdangnhap" method="post">
+		<h3>Cập nhật thông tin cơ bản</h3>
+		<table>
+			<tr>
+				<td><label>Mã quản trị viên</label></td>
+				<td><input readonly asp-for=@Model.Qtv.Id type="text" value="@Model.Qtv?.Id" /></td>
+			</tr>
+			<tr>
+				<td><label>Mã nhà xe</label></td>
+				<td><input readonly asp-for=@Model.Qtv.MaNhaXe type="text" value="@Model.Qtv?.MaNhaXe" /></td>
+			</tr>
+			<tr>
+				<td><label>Họ, đệm</label></td>
+				<td><input asp-for=@Model.Qtv.HoDem type="text" value="@Model.Qtv?.HoDem" /></td>
+				<td><span asp-validation-for=Qtv.HoDem></span></td>
+			</tr>
+			<tr>
+				<td><label>Tên</label></td>
+				<td><input asp-for=@Model.Qtv.Ten type="text" value="@Model.Qtv?.Ten" /></td>
+				<td><span asp-validation-for=Qtv.Ten></span></td>
+			</tr>
+			<tr>
+				<td><label>Nam giới</label></td>
+				<td>
+					@Html.CheckBoxFor(m => m.Qtv.GioiTinh)
+				</td>
+			</tr>
+			<tr>
+				<td><label>Nơi sinh</label></td>
+				<td><input asp-for=@Model.Qtv.NoiSinh type="text" value="@Model.Qtv?.NoiSinh" /></td>
+				<td><span asp-validation-for=Qtv.NoiSinh></span></td>
+			</tr>
+			<tr>
+				<td><label>Số điện thoại</label></td>
+				<td><input asp-for=@Model.Qtv.PhoneNumber type="text" value="@Model.Qtv?.PhoneNumber" /></td>
+				<td><span asp-validation-for=Qtv.PhoneNumber></span></td>
+			</tr>
+			<tr>
+				<td><label>Tên đăng nhập</label></td>
+				<td><input asp-for=@Model.Qtv.UserName type="text" value="@Model.Qtv?.UserName" /></td>
+				<td><span asp-validation-for=Qtv.UserName></span></td>
+			</tr>
+			<tr>
+				<td><label>Vai trò</label></td>
+				<td><input readonly asp-for="@Model.Role" type="text" value='@(Model.Role??"")' /></td>
+			</tr>
+		</table>
+		<button type="submit">Cập nhật thông tin</button>
+	</form>
+	<form asp-action="changepassword" method="post">
+		<h3>Đổi mật khẩu</h3>
+		<table>
+			<tr>
+				<td><label>Mật khẩu cũ</label></td>
+				<td><input type="text" asp-for="OldPassword" /></td>
+				<td><span asp-validation-for="OldPassword"></span></td>
+			</tr>
+			<tr>
+				<td><label>Mật khẩu mới</label></td>
+				<td><input type="text" asp-for="NewPassword" /></td>
+				<td><span asp-validation-for="NewPassword"></span></td>
+			</tr>
+		</table>
+		<button type="submit">Đổi mật khẩu</button>
+	</form>
+</div>

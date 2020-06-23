@@ -33,16 +33,7 @@
 							<td><input readonly type="text" value="@key.MaNhaXe" /></td>
 							<td><input readonly type="text" value="@key.HoDem" /></td>
 							<td><input readonly type="text" value="@key.Ten" /></td>
-							<td>
-								@if (key.NamGioi)
-								{
-									<input readonly type="checkbox" checked />
-								}
-								else
-								{
-									<input readonly type="checkbox" />
-								}
-							</td>
+							<td><input type="checkbox" @(key.GioiTinh ? "checked" : "") /></td>
 							<td><input readonly type="text" value="@key.NoiSinh" /></td>
 							<td><input readonly type="text" value="@key.PhoneNumber" /></td>
 							<td><input readonly type="text" value="@key.UserName" /></td>
@@ -65,18 +56,6 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="input-group">
-			<div class="input-group">
-				<label>Mật khẩu:</label>
-				<input id="for-password" type="text" value="" />
-			</div>
-			<div class="input-group">
-				<button type="button" id="create-ttdn">Tạo mới</button>
-				<button type="button" id="update-ttdn">Cập nhật</button>
-				<button type="button" id="delete-ttdn">Xoá</button>
-				<button type="button" id="changepassword">Reset mật khẩu</button>
-			</div>
-		</div>
 		<datalist id="role-list">
 			@foreach (IdentityRole role in ViewBag.Roles)
 			{
@@ -89,6 +68,18 @@
 				<option>@(nx.MaNhaXe)</option>
 			}
 		</datalist>
+		<div class="input-group">
+			<div class="input-group">
+				<button type="button" id="create-ttdn">Tạo mới</button>
+				<button type="button" id="update-ttdn">Cập nhật</button>
+				<button type="button" id="delete-ttdn">Xoá</button>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>Mật khẩu mới:</label>
+			<input id="for-password" type="text" value="" />
+			<button type="button" id="changepassword">Reset mật khẩu</button>
+		</div>
 	</form>
 </div>
 

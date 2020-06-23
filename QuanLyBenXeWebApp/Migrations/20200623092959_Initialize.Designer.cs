@@ -10,7 +10,7 @@ using QuanLyBenXeWebApp.Models;
 namespace QuanLyBenXeWebApp.Migrations
 {
     [DbContext(typeof(BenXeDaNangContext))]
-    [Migration("20200620131037_Initialize")]
+    [Migration("20200623092959_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -218,7 +218,7 @@ namespace QuanLyBenXeWebApp.Migrations
 
                     b.Property<string>("MauBieuTuong")
                         .IsRequired()
-                        .HasMaxLength(9);
+                        .HasMaxLength(7);
 
                     b.Property<string>("Sdt")
                         .IsRequired()
@@ -251,6 +251,8 @@ namespace QuanLyBenXeWebApp.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<bool>("GioiTinh");
+
                     b.Property<string>("HoDem")
                         .IsRequired()
                         .HasMaxLength(20);
@@ -261,8 +263,6 @@ namespace QuanLyBenXeWebApp.Migrations
 
                     b.Property<string>("MaNhaXe")
                         .HasMaxLength(10);
-
-                    b.Property<bool>("NamGioi");
 
                     b.Property<string>("NoiSinh")
                         .HasMaxLength(40);
@@ -339,11 +339,11 @@ namespace QuanLyBenXeWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(10);
 
+                    b.Property<bool>("GioiTinh");
+
                     b.Property<string>("HoDem")
                         .IsRequired()
                         .HasMaxLength(20);
-
-                    b.Property<bool>("NamGioi");
 
                     b.Property<string>("NoiSinh")
                         .HasMaxLength(50);
@@ -404,7 +404,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     b.ToTable("XeKhach");
                 });
 
-            modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhachDiemDung", b =>
+            modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhach_DiemDung", b =>
                 {
                     b.Property<int>("Stt")
                         .ValueGeneratedOnAdd()
@@ -433,7 +433,7 @@ namespace QuanLyBenXeWebApp.Migrations
                     b.HasIndex("MaXeKhach", "MaDiemDung", "GioDiKhoiDN", "GioDiToiDN", "TGDCkhoiDN", "TGDCtoiDN")
                         .IsUnique();
 
-                    b.ToTable("XeKhachDiemDung");
+                    b.ToTable("XeKhach_DiemDung");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -535,7 +535,7 @@ namespace QuanLyBenXeWebApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhachDiemDung", b =>
+            modelBuilder.Entity("QuanLyBenXeWebApp.Models.XeKhach_DiemDung", b =>
                 {
                     b.HasOne("QuanLyBenXeWebApp.Models.DiemDung", "DiemDung")
                         .WithMany("XeKhachList")
