@@ -1,14 +1,56 @@
 ﻿@model LoginViewModel
 @{
-	ViewData["Title"] = "Đăng nhập quản trị viên";
+    ViewData["Title"] = "Đăng nhập quản trị viên";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+@*<h1>@ViewData["Title"]</h1>*@
 
 <div class="wrap-admin container-fluid">
-    <div class="opacity-background">
-
+    <div class="login-block container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="d-flex" style="justify-content:center; align-items:center; width:100%; height:100%;">
+                    <div>
+                        <h3 class="login-title" style="font-family: 'Michroma', sans-serif; text-transform:uppercase; padding:0 0;">TEAMSE 12</h3><br />
+                        <img src="../public/assets/img/logobus.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6" >
+                <div style="width:80%; margin:auto">
+                    <h3 class="login-title" style="font-family: 'Michroma', sans-serif; text-transform:uppercase; padding:0 0;">Welcome </h3>
+                    <h5 class="login-title">Login QTV</h5>
+                    <section>
+                        <form asp-action="login" method="post">
+                            <div class="form-group">
+                                <label style="color:white!important;">Ký danh:</label>
+                                <input type="text" class="form-control" name="UserName" asp-for=UserName />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label style="color:white!important;">Mật khẩu:</label>
+                                <input type="password" class="form-control" name="Password" asp-for=Password>
+                                <span asp-validation-for=Password class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label style="color:white!important;">Ghi nhớ đăng nhập:</label>
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                            <div class="form-group" style="padding: 20px 20px;display: flex;justify-content: center;">
+                                <button type="submit" class="login_btn">Đăng nhập</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
+<<<<<<< HEAD
+    <div class="border-between">
+
+=======
     <div class="login-block">
         <h3 class="login-title">Đăng nhập tài khoản quản trị viên</h3>
             <section>
@@ -34,6 +76,7 @@
 					</div>
 				</form>
             </section>
+>>>>>>> 5a0ff736d6f940398243c7f9072ef06fb088d0d0
     </div>
     <div class="login-footer">
         <div class="container">
