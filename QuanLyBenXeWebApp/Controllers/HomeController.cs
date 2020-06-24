@@ -17,10 +17,13 @@ namespace QuanLyBenXeWebApp.Controllers
 		}
 		public IActionResult Index()
 		{
+			DiemDung[] diemDungList = context.DiemDung.GroupBy(dd => dd.TenTinhTp)
+				.Select(group => group.First()).ToArray();
+			NhaXe[] nhaXeList = context.NhaXe.ToArray();
 			IndexViewModel model = new IndexViewModel()
 			{
-				DiemDungList = context.DiemDung.ToArray(),
-				NhaXeList = context.NhaXe.ToArray()
+				DiemDungList = diemDungList,
+				NhaXeList = nhaXeList
 			};
 			return View(model);
 		}

@@ -86,15 +86,15 @@
 								</li>
 							}
 							<li class="nav-item">
-								<button class="btn btn-danger ml-2">
-									Đăng Xuất
-								</button>
+								<form method="post" asp-controller="account" asp-action="logout">
+									<button class="btn btn-danger ml-2" type="submit">Đăng xuất</button>
+								</form>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-			<div class="container">
+			<div class="container-fluid">
 				@RenderBody()
 			</div>
 		</div>
@@ -118,6 +118,10 @@
 		</script>
 	</environment>
 	<script src="~/js/admin.js" asp-append-version="true"></script>
+	<script src="~/js/qtv0.js" asp-append-version="true"></script>
+	<script src="~/js/qtv1.js" asp-append-version="true"></script>
+	<script src="~/js/qtv2.js" asp-append-version="true"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 
 	@RenderSection("Scripts", required: false)
 </body>

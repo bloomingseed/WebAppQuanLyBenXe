@@ -111,11 +111,14 @@ namespace QuanLyBenXeWebApp.Controllers
 			{
 				if (!ModelState.IsValid)
 					throw new Exception("Thông tin không hợp lệ");
-				QuanTriVien _qtv = await uManager.FindByIdAsync(viewModel.Qtv.Id);
-				if (_qtv == null)
-					throw new Exception("Không tìm thấy quản trị viên");
-				string token = await uManager.GeneratePasswordResetTokenAsync(_qtv);
-				await uManager.ChangePasswordAsync(_qtv, viewModel.OldPassword, viewModel.NewPassword);
+				QuanTriVien _qtv = (from qtv in uManager.Users
+								   where qtv.UserName == HttpContext.User.Identity.Name
+								   select qtv).First();
+				viewModel.Qtv = _qtv;
+				viewModel.Role = uManager.GetRolesAsync(_qtv).Result.First();
+				IdentityResult res = await uManager.ChangePasswordAsync(_qtv, viewModel.OldPassword, viewModel.NewPassword);
+				if (!res.Succeeded)
+					throw new Exception("Đổi mật khẩu thất bại");
 				_context.SaveChanges();
 			}
 			catch (Exception err) { ModelState.AddModelError("", err.Message); }

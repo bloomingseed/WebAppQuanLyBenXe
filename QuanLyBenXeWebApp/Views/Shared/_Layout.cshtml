@@ -24,9 +24,9 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light box-shadow fixed-top mb-3">
+		<nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light box-shadow fixed-top mb-3">
 			<div class="container">
-				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <i class="fas fa-bus"></i> BẾN XE</a>
+				<a id="logo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <i class="fas fa-bus"></i> BẾN XE</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -105,8 +105,11 @@
 		</script>
 	</environment>
 	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/admin.js" asp-append-version="true"></script>
 	<script src="~/js/qtv0.js"></script>
-	<script src="~/js/qtv2.js"></script>
+	<script src="~/js/qtv1.js"></script>
+	<script src="~/js/qtv2.js" asp-append-version="true"></script>
+
 
 	@RenderSection("Scripts", required: false)
 </body>

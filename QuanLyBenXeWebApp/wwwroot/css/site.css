@@ -146,16 +146,13 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 } */
-.navbar {
-	background-color: rgba(0, 0, 0, 0.7);
-}
 
 .nav-link {
 	color: black!important;
 	text-transform: uppercase;
 	font-weight: bold;
 }
-
+	
 .search-block {
 	width: 70%;
 	background-color: rgba(255, 255, 255, 1);
@@ -175,8 +172,12 @@ a {
 
 .nav-link:focus {
 }
-
-
+.is-visible{
+	background-color:white!important;
+}
+.is-hidden{
+	background-color:none!important;
+}
 /*carousel*/
 
 .blog .carousel-indicators {
