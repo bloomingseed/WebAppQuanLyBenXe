@@ -1,159 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = " QTV Bến Xe";
+	ViewData["Title"] = " QTV Bến Xe";
 }
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-          crossorigin="anonymous">
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
-    </environment>
-    <link rel="stylesheet" href="~/css/admin.css" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		  integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+		  crossorigin="anonymous">
+	<environment include="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+			  crossorigin="anonymous"
+			  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+	</environment>
+	<link rel="stylesheet" href="~/css/admin.css" />
 </head>
 <body>
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar">
-            <div class="p-4 pt-5">
-                <ul class="list-unstyled components mb-5">
-                    <li class="active-item">
-                        <a asp-controller="home" asp-action="index" class="text-capitalize">Trang Chủ</a>
-                    </li>
-                    <li>
-                        <a asp-action="lsgiaodich" class="text-capitalize">Tạo, xem lịch sử giao dịch</a>
-                    </li>
-                    <li>
-                        <a asp-action="ttdangnhap" class="text-capitalize">CRUD thông tin đăng nhập</a>
-                    </li>
-                    <li>
-                        <a asp-action="qtv" class="text-capitalize">CRUD thông tin QTV</a>
-                    </li>
-                    <li>
-                        <a asp-action="ttbenxe" class="text-capitalize">Xem trạng thái bến xe</a>
-                    </li>
-                    <li>
-                        <a asp-action="lsvaora" class="text-capitalize">Xem, xoá lịch sử vào-ra</a>
-                    </li>
-                    <li>
-                        <a asp-action="vitrido" class="text-capitalize">CRUD vị trí đỗ</a>
-                    </li>
-                    <li>
-                        <a asp-action="nhaxe" class="text-capitalize">CRUD thông tin nhà xe</a>
-                    </li>
-                </ul>
-=======
-<div class="wrapper d-flex align-items-stretch">
-	<nav id="sidebar">
-		<div class="p-4 pt-5">
-			<ul class="list-unstyled components mb-5">
-				<li class="active">
-					<a asp-controller="home" asp-action="index" class="text-capitalize">Trang Chủ</a>
-				</li>
-				<li>
-					<a asp-action="lsgiaodich" class="text-capitalize">Tạo, xem lịch sử giao dịch</a>
-				</li>
-				<li>
-					<a asp-action="ttdangnhap" class="text-capitalize">CRUD thông tin đăng nhập</a>
-				</li>
-				<li>
-					<a asp-action="ttbenxe" class="text-capitalize">Xem trạng thái bến xe</a>
-				</li>
-				<li>
-					<a asp-action="lsvaora" class="text-capitalize">Xem, xoá lịch sử vào-ra</a>
-				</li>
-				<li>
-					<a asp-action="vitrido" class="text-capitalize">CRUD vị trí đỗ</a>
-				</li>
-				<li>
-					<a asp-action="nhaxe" class="text-capitalize">CRUD thông tin nhà xe</a>
-				</li>
-			</ul>
->>>>>>> 5a0ff736d6f940398243c7f9072ef06fb088d0d0
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+			<div class="p-4 pt-5">
+				<ul class="list-unstyled components mb-5">
+					<li class="active-item">
+						<a asp-controller="home" asp-action="index" class="text-capitalize">Trang Chủ</a>
+					</li>
+					<li>
+						<a asp-action="lsgiaodich" class="text-capitalize">Tạo, xem lịch sử giao dịch</a>
+					</li>
+					<li>
+						<a asp-action="ttdangnhap" class="text-capitalize">CRUD thông tin đăng nhập</a>
+					</li>
+					<li>
+						<a asp-action="ttbenxe" class="text-capitalize">Xem trạng thái bến xe</a>
+					</li>
+					<li>
+						<a asp-action="lsvaora" class="text-capitalize">Xem, xoá lịch sử vào-ra</a>
+					</li>
+					<li>
+						<a asp-action="vitrido" class="text-capitalize">CRUD vị trí đỗ</a>
+					</li>
+					<li>
+						<a asp-action="nhaxe" class="text-capitalize">CRUD thông tin nhà xe</a>
+					</li>
+				</ul>
 
-                <div class="footer">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="SE12" target="_blank">SE12</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
+				<div class="footer">
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank">SE12</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
 
-            </div>
-        </nav>
+			</div>
+		</nav>
 
-        <!-- Page Content  -->
-        <div id="content" class="">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+		<!-- Page Content  -->
+		<div id="content" class="">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                        <span class="sr-only">Toggle Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+						<i class="fa fa-bars"></i>
+						<span class="sr-only">Toggle Menu</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fa fa-bars"></i>
+					</button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            @{
-							<li class="nav-item">
-								<span>Hello <b>@User.Identity.Name.</b></span>
-							</li>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
+							@{
+								<li class="nav-item">
+									<span>Hello <b>@User.Identity.Name.</b></span>
+								</li>
 							}
-                            <li class="nav-item">
-                                <button class="btn btn-danger ml-2">
-                                    Đăng Xuất
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <div class="container">
-                @RenderBody()
-            </div>
-        </div>
-    </div>
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/admin.js" asp-append-version="true"></script>
+							<li class="nav-item">
+								<button class="btn btn-danger ml-2">
+									Đăng Xuất
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="container">
+				@RenderBody()
+			</div>
+		</div>
+	</div>
+	<environment include="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery"
+				crossorigin="anonymous"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				crossorigin="anonymous"
+				integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+		</script>
+	</environment>
+	<script src="~/js/admin.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+	@RenderSection("Scripts", required: false)
 </body>
 </html>

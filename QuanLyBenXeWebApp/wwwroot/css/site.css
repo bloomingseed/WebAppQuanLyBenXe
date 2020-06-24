@@ -1,6 +1,19 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 /*here*/
+.wrap {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	background-image: url("../public/assets/img/bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position:center;
+	padding-top:0px;
+}
 .wrap-admin {
 	display: flex;
 	width: 100%;
@@ -8,11 +21,16 @@ for details on configuring this project to bundle and minify static web assets. 
 	position: relative;
 	justify-content: center;
 	align-items: center;
-	background-image: url("../public/assets/img/background.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-color: #002428;
 }
-
+.border-between {
+	position: absolute;
+	display: block;
+	background-color: white;
+	height: 400px;
+	width: 2px;
+	z-index:2;
+}
 .opacity-background {
 	position: absolute;
 	height: 100%;
@@ -23,10 +41,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .login-block {
 	display: block;
-	height: 80%;
-	width: 400px;
 	position: absolute;
-	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 9999;
 }
 
@@ -51,12 +66,12 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .form-control {
 	background: none;
-	color: white;
+	color: black;
 }
 
 	.form-control:focus {
 		background: none;
-		color: white;
+		color: #f36820;
 	}
 
 /*.remember,
@@ -73,8 +88,14 @@ a {
 
 .login_btn {
 	color: black;
-	background-color: #ffc312;
-	width: 100px;
+	background-color: #f36820;
+	width: 200px;
+	height:40px;
+	border-radius:10px;
+	border:none;
+	color:white;
+	font-size:18px;
+	text-transform:uppercase;
 }
 
 	.login_btn:hover {
@@ -130,21 +151,21 @@ a {
 }
 
 .nav-link {
-	color: white;
+	color: black!important;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 .search-block {
 	width: 70%;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(255, 255, 255, 1);
 	height: auto;
 }
 
 .label {
 	display: flex;
 	padding: 10px 0px;
-	color: white;
+	color: black;
 	width: 50px;
 	height: 68px;
 	margin-right: 10px;
@@ -163,17 +184,16 @@ a {
 	top: auto;
 	bottom: -40px;
 }
-
-
+.img-item{
+	width:250px;
+	height:250px;
+}
 /* The colour of the indicators */
-
-
 /* .blog .carousel-indicators {
     background: none;
     border-radius: none !important;
 }
 */
-
 #blogCarousel li {
 	background-color: #a3a3a3;
 	border-radius: 50%;
@@ -205,8 +225,15 @@ a {
 	list-style: none;
 	font-size: 15px;
 	padding: 10px 0px;
+	
 }
-
+a {
+	color:white;
+}
+	a:hover {
+		color: #f36820;
+		text-decoration:none;
+	}
 .mxh {
 	display: flex;
 	margin: auto;
@@ -322,4 +349,8 @@ a[data-toggle="collapse"] {
 }
 .selected-row{
 	background-color: #ddd;
+}
+/* footer*/
+ul{
+	padding:0;
 }

@@ -48,3 +48,4 @@ C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\TtDangNhap.g.cshtml.cs
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV0\ViTriDo.g.cshtml.cs
 C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\QTV2\TtDangNhap.g.cshtml.cs
+C:\Users\FPTSHOP 671\source\repos\QuanLyBenXeWebApp\QuanLyBenXeWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutLogin.g.cshtml.cs
