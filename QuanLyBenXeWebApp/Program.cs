@@ -29,7 +29,7 @@ namespace QuanLyBenXeWebApp
 
 				IdentityRole vp, nx, vr;
 				vp = new IdentityRole("QtvVanPhong");
-				vr = new IdentityRole("QTVVaoRa");
+				vr = new IdentityRole("QtvVaoRa");
 				nx = new IdentityRole("QtvNhaXe");
 
 
