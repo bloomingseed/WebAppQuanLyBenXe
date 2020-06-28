@@ -188,8 +188,8 @@ function getTtDangNhap() {
 		PhoneNumber: fields[i++].value,
 		UserName: fields[i++].value
 	}
-	var password = $("#for-password")[0].value
-	var roleName = fields[fields.length-1].value
+	var password = fields[i++].value
+	var roleName = fields[i++].value
 	return {
 		qtv,
 		password,

@@ -126,7 +126,11 @@ namespace QuanLyBenXeWebApp.Controllers
 					throw new Exception("Thông tin không hợp lệ");
 				var result = await uManager.CreateAsync(qtv, password);
 				if (!result.Succeeded)
+				{
+					foreach (var error in result.Errors)
+						ModelState.AddModelError("", error.Description);
 					throw new Exception("Tạo quản trị viên mới không thành công");
+				}
 				result = await uManager.AddToRoleAsync(qtv, roleName);
 				if (!result.Succeeded)
 					throw new Exception("Phân quyền không thành công");

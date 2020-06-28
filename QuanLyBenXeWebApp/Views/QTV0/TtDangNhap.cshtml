@@ -37,7 +37,7 @@
 							<td><input readonly type="text" value="@key.NoiSinh" /></td>
 							<td><input readonly type="text" value="@key.PhoneNumber" /></td>
 							<td><input readonly type="text" value="@key.UserName" /></td>
-							<td><input readonly type="text" value="@key.PasswordHash" /></td>
+							<td><input readonly type="text" placeholder="*****" value="" /></td>
 							<td><input readonly type="text" value="@Model[key]" list="role-list" /></td>
 						</tr>
 					}
@@ -70,8 +70,6 @@
 		</datalist>
 		<div class="input-group">
 			<div class="input-group">
-				<label>Mật khẩu mới:</label>
-				<input id="for-password" type="text" value="" />
 				<button type="button" id="create-ttdn">Tạo mới</button>
 				<button type="button" id="update-ttdn">Cập nhật</button>
 				<button type="button" id="delete-ttdn">Xoá</button>
