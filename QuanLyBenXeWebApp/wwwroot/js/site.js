@@ -39,6 +39,7 @@ $(document).ready(function () {
 	$("#vtd-data-grid tr").click(function () { updateSelectedRow(this, 0); });
 	$("#xk-data-grid tr").click(function () { updateSelectedRow(this, 2); });
 	registerQtv0EventHandlers()
+	registerQtv1EventHandlers()
 	registerQtv2EventHandlers()
 });
 
@@ -71,7 +72,8 @@ function searchBusesAjax() {
 		url: '/Home/Search',
 		data: args,
 		success: (response) => {
-			renderXeKhachJson(response, $("#result-holder"));
+			renderXeKhachJson(response);
+			$("#result-holder")[0].scrollIntoView(true);
 		},
 		error: (response) => {
 			console.log("Error: " + response);
@@ -98,8 +100,12 @@ function updateSelectedRow(row, start) {
 }
 
 //render the returned xe khach json object
-function renderXeKhachJson(jsonArray, jResHolder) {
-	//var resHolder = $("#result-holder"),
+function renderXeKhachJson(jsonArray) {
+	var jResHolder = $("#result-holder")
+	if (jsonArray.length == undefined) {
+		jResHolder.append($("<div class='text-info'></div>").html("Không tìm thấy xe khách như yêu cầu"))
+		return
+	}	
 	var elHtml = '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>'
 		+ '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-sm-flex justify-content-sm-center align-items-sm-center"></div>'
 		+ '<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark d-sm-flex justify-content-sm-center"></div>'
@@ -122,12 +128,12 @@ function renderXeKhachJson(jsonArray, jResHolder) {
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Nhà xe: &nbsp;")
-			.append($('<a></a>').attr("href", "/home/nhaxe?id=" + xeKhach.maNhaXe+"&returnUrl="+window.location.href)
+			.append($('<a></a>').attr("href", "/home/nhaxe?id=" + xeKhach.maNhaXe)
 				.append($('<h6 class="d-sm-flex justify-content-sm-center align-items-sm-center"></h6>').html(xeKhach.tenNhaXe)));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Tên tài xế: &nbsp;")
-			.append($("<a></a>").html(xeKhach.tenTaiXe).attr("href", "/home/taixe?id=" + xeKhach.maTaiXe + "&returnUrl=" + window.location.href));
+			.append($("<a></a>").html(xeKhach.tenTaiXe).attr("href", "/home/taixe?id=" + xeKhach.maTaiXe));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Loại xe: &nbsp;")

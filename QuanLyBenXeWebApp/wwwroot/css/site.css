@@ -69,22 +69,17 @@ for details on configuring this project to bundle and minify static web assets. 
 	color: black;
 }
 
-	.form-control:focus {
-		background: none;
-		color: #f36820;
-	}
+.form-control:focus {
+	background: none;
+	color: #f36820;
+}
 
-/*.remember,
-a {
-	color: white;
-}*/
-
-	.remember input {
-		width: 20px;
-		height: 20px;
-		margin-left: 15px;
-		margin-right: 5px;
-	}
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
 
 .login_btn {
 	color: black;
@@ -229,11 +224,11 @@ a {
 	
 }
 a {
-	color:white;
+	text-decoration: none;
 }
 	a:hover {
 		color: #f36820;
-		text-decoration:none;
+		text-decoration: none;
 	}
 .mxh {
 	display: flex;

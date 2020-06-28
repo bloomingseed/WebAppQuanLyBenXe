@@ -45,7 +45,7 @@ namespace QuanLyBenXeWebApp.Controllers
 			if (!ModelState.IsValid)
 			{
 				ModelState.AddModelError("", "Model binding failed");
-				return new JsonResult(new { });
+				return new JsonResult(new object());
 			}
 			string diemDungA = null;
 			bool isToDN = false;
@@ -114,44 +114,33 @@ namespace QuanLyBenXeWebApp.Controllers
 			return new JsonResult(res.ToArray());
 		}
 
-		public IActionResult NhaXe(string id, string returnUrl)
+		public IActionResult NhaXe(string id)
 		{
-			if (!ModelState.IsValid) {
-				ModelState.AddModelError("", "Server error. Please try again or request technical support");
-				if (String.IsNullOrEmpty(returnUrl))
-					return RedirectToAction("Index");
-				else
-					return Redirect(returnUrl);
+			if (!ModelState.IsValid)
+			{
+				ModelState.AddModelError("", "Mã nhà xe không hợp lệ");
+				return RedirectToAction("Index");
 			}
 			NhaXe res = context.NhaXe.Find(id);
 			if (res == null)
 			{
 				ModelState.AddModelError("", "Không tìm thấy nhà xe với mã " + id);
-				if (String.IsNullOrEmpty(returnUrl))
-					return RedirectToAction("Index");
-				else
-					return Redirect(returnUrl);
+				return RedirectToAction("Index");
 			}
 			return View("NhaXe",res);
 		}
-		public IActionResult TaiXe(string id, string returnUrl)
+		public IActionResult TaiXe(string id)
 		{
 			if (!ModelState.IsValid)
 			{
 				ModelState.AddModelError("", "Server error. Please try again or request technical support");
-				if (String.IsNullOrEmpty(returnUrl))
-					return RedirectToAction("Index");
-				else
-					return Redirect(returnUrl);
+				return RedirectToAction("Index");
 			}
 			TaiXe res = context.TaiXe.Find(id);
 			if (res == null)
 			{
 				ModelState.AddModelError("", "Không tìm thấy tài xế với mã " + id);
-				if (String.IsNullOrEmpty(returnUrl))
-					return RedirectToAction("Index");
-				else
-					return Redirect(returnUrl);
+				return RedirectToAction("Index");
 			}
 			return View("TaiXe", res);
 		}

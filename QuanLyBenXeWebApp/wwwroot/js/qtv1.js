@@ -140,18 +140,8 @@ function bindLsVaoRa() {
     $("#create-lsvr").click(createLsVaoRa)
 }
 
+
 function registerQtv1EventHandlers() {
     bindTtBenXe()
     bindLsVaoRa()
-}
-
-function getViTriDo() {
-    var fields = $(".selected-row").find("input")
-    var i = 0
-    var ViTriDo = {
-        MaViTri: fields[i++].value
-    }
-    return {
-        ViTriDo
-    }
 }
