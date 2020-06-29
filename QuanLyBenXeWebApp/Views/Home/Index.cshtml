@@ -3,100 +3,102 @@
 	ViewData["Title"] = "Trang chủ";
 }
 @* <link rel="stylesheet" href="~/wwwroot/css/StyleSheet.css"/>*@
-<div class="wrap">
-	<div class="wrap-admin">
-		<div class="search-block">
-			<div class="container">
-				<div class="row">
-					<h2 class="search-title col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-						Chào mừng đến với bến xe trung tâm TP.Đà Nẵng
-					</h2>
-						<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-							<div class="input-group">
-								<label for="" class="label">Từ</label>
-								<input id="input-start"  class="form-control mx-auto my-auto" placeholder="điểm bắt đầu" list="start-points" required>
-								<datalist id="start-points">
-									@foreach(DiemDung diemDung in Model.DiemDungList)
-									{
-										<option>@(diemDung.TenTinhTp)</option>
-									}
-								</datalist>foreach
-							</div>
-						</div>
-						<div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-							<div class="input-group">
-								<label for="" class="label">Đến</label>
-								<input id="input-stop" class="form-control mx-auto my-auto" name="" placeholder="Điểm dừng" list="stop-points" required>
-								<datalist id="stop-points">
-									@foreach (DiemDung diemDung in Model.DiemDungList)
-									{
-										<option>@(diemDung.TenTinhTp)</option>
-									}
-								</datalist>
-							</div>
-						</div>
-						<div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-							<div class="input-group">
-								<span class="label">Ngày</span>
-								<input id="input-date" class="form-control mx-auto my-auto" type="date" required>
-							</div>
-						</div>
-						<div class="nangcao col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" id="toogle">
-							<div class="row">
-								<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-									<div class="input-group">
-										<label for="" class="label">Nhà Xe</label>
-										<select id="input-bus" class="form-control mx-auto my-auto" name="" >
-											<option></option>
-											@foreach(NhaXe nhaXe in Model.NhaXeList)
-											{
-												<option>@(nhaXe.TenNhaXe)</option>
-											}
-										</select>foreach
-									</div>
-								</div>
-								<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-									<div class="input-group">
-										<label for="quantity" class="label">Khoang t/g:</label>
-										<input id="input-interval" type="number" class="form-control mx-auto my-auto" name="quantity" min="1" max="48" step="0.5">
-									</div>
-								</div>
-								<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-									<div class="input-group">
-										<label for="" class="label">Loại Xe</label>
-										<input id="input-type" class="form-control mx-auto my-auto" list="seat-types">
-										<datalist id="seat-types">
-											<option>12 Ghế</option>
-											<option>16 Ghế</option>
-											<option>24 Ghế</option>
-											<option>29 Ghế</option>
-											<option>35 Ghế</option>
-											<option>45 Ghế</option>
-											<option>50 Ghế</option>
-										</datalist>
-									</div>
-								</div>
-								<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-									<div class="input-group">
-										<label for="quantity" class="label">Giá Vé:</label>
-										<input id="input-cost" type="number" class="form-control mx-auto my-auto" name="quantity" min="50000" max="500000" step="50000">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
-							<button id="toogle-button" type="button" class="btn  d-block" style="background-color: #ffc312;width: 50%; margin:auto" >
-								<i class="fas fa-caret-down"></i> Tìm Kiếm Nâng Cao
-							</button>
-						</div>
-						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
-							<button id="button-find" type="button" class="btn  d-block" style="background-color:#ffc312; width:50%; margin:auto">
-								<i class="fas fa-search"></i> Tìm Kiếm
-							</button>
-						</div>
-				</div>
-			</div>
-		</div>
+<div class="wrap-content">
+    <div class="wrap">
+
+	
+        <div class="search-block">
+            <div class="container">
+                <div class="row">
+                    <h2 class="search-title col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="color:black;">
+                        Chào mừng đến với bến xe trung tâm TP.Đà Nẵng
+                    </h2>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="input-group">
+                            <label for="" class="label">Từ</label>
+                            <input id="input-start" class="form-control mx-auto my-auto" placeholder="điểm bắt đầu" list="start-points" required>
+                            <datalist id="start-points">
+                                @foreach (DiemDung diemDung in Model.DiemDungList)
+                                {
+                                    <option>@(diemDung.TenTinhTp)</option>
+                                }
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="input-group">
+                            <label for="" class="label">Đến</label>
+                            <input id="input-stop" class="form-control mx-auto my-auto" name="" placeholder="Điểm dừng" list="stop-points" required>
+                            <datalist id="stop-points">
+                                @foreach (DiemDung diemDung in Model.DiemDungList)
+                                {
+                                    <option>@(diemDung.TenTinhTp)</option>
+                                }
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="input-group">
+                            <span class="label">Ngày</span>
+                            <input id="input-date" class="form-control mx-auto my-auto" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                        </div>
+                    </div>
+                    <div class="nangcao col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" id="toogle">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="input-group">
+                                    <label for="" class="label">Nhà Xe</label>
+                                    <select id="input-bus" class="form-control mx-auto my-auto" name="">
+                                        <option></option>
+                                        @foreach (NhaXe nhaXe in Model.NhaXeList)
+                                        {
+                                            <option>@(nhaXe.TenNhaXe)</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="input-group">
+                                    <label for="quantity" class="label">Khoang T/G</label>
+                                    <input id="input-interval" type="number" class="form-control mx-auto my-auto" name="quantity" min="1" max="48" step="0.5">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="input-group">
+                                    <label for="" class="label">Loại Xe</label>
+                                    <input id="input-type" class="form-control mx-auto my-auto" list="seat-types">
+                                    <datalist id="seat-types">
+                                        <option>12 Ghế</option>
+                                        <option>16 Ghế</option>
+                                        <option>24 Ghế</option>
+                                        <option>29 Ghế</option>
+                                        <option>35 Ghế</option>
+                                        <option>45 Ghế</option>
+                                        <option>50 Ghế</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="input-group">
+                                    <label for="quantity" class="label">Giá Vé</label>
+                                    <input id="input-cost" type="number" class="form-control mx-auto my-auto" name="quantity" min="50000" max="500000" step="50000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
+                        <button id="toogle-button" type="button" class="btn  d-block" style="background-color: #ffc312;width: 50%; margin:auto">
+                            <i class="fas fa-caret-down"></i> Tìm Kiếm Nâng Cao
+                        </button>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
+                        <button id="button-find" type="button" class="btn  d-block" style="background-color:#ffc312; width:50%; margin:auto">
+                            <i class="fas fa-search"></i> Tìm Kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 	<div id="result-holder" class ="container" ></div>
 	<div class="promotion">
@@ -115,22 +117,22 @@
 								<div class="row">
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer1.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer2.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer3.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer4.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 								</div>
@@ -142,22 +144,22 @@
 								<div class="row">
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer5.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer6.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer7.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 									<div class="col-md-3">
 										<a href="#">
-											<img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+											<img src="../public/assets/img/layer8.png" alt="Image" style="max-width:100%;" class="img-item">
 										</a>
 									</div>
 								</div>

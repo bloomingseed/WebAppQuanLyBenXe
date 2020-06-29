@@ -1,82 +1,127 @@
 ﻿@{
-	Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@{
 	ViewData["Title"] = "Quản trị thông tin nhà xe";
 }
-<div class="wrapper d-flex align-items-stretch">
-	<nav id="sidebar">
-		<div class="p-4 pt-5">
-			<ul class="list-unstyled components mb-5">
-				<li class="active">
-					<a asp-action="Index" class="text-capitalize">Trang Chủ</a>
-				</li>
-				<li>
-					<a asp-action="CoBan" class="text-capitalize">Chỉnh sửa thông tin cơ bản</a>
-				</li>
-				<li>
-					<a asp-action="XeKhach" class="text-capitalize">Chỉnh sửa thông tin xe khách</a>
-				</li>
-				<li>
-					<a asp-action="TaiXe" class="text-capitalize">Chỉnh sửa thông tin tài xế</a>
-				</li>
-				<li>
-					<a href="#" class="text-capitalize">Hướng dẫn</a>
-				</li>
-				<li>
-					<a href="#" class="text-capitalize">Hỗ trợ</a>
-				</li>
-				<li>
-					<a href="#" class="text-capitalize">Yêu cầu thay đổi thông tin đăng nhập</a>
-				</li>
-			</ul>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		  integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+		  crossorigin="anonymous">
+	<environment include="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+			  crossorigin="anonymous"
+			  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+	</environment>
+	<link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+			<div class="p-4 pt-5">
+				<ul class="list-unstyled components mb-5">
+					<li class="active">
+						<a asp-action="index" asp-controller="home" class="text-capitalize">Trang Chủ</a>
+					</li>
+					<li>
+						<a asp-action="coban" class="text-capitalize">Chỉnh sửa thông tin cơ bản</a>
+					</li>
+					<li>
+						<a asp-action="xekhach" class="text-capitalize">Chỉnh sửa thông tin xe khách</a>
+					</li>
+					<li>
+						<a asp-action="taixe" class="text-capitalize">Chỉnh sửa thông tin tài xế</a>
+					</li>
+					<li>
+						<a href="#" class="text-capitalize">Hướng dẫn</a>
+					</li>
+					<li>
+						<a href="#" class="text-capitalize">Hỗ trợ</a>
+					</li>
+					<li>
+						<a asp-action="ttdangnhap" class="text-capitalize">Yêu cầu thay đổi thông tin đăng nhập</a>
+					</li>
+				</ul>
 
-			<div class="footer">
-				<p>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;
-					<script>
-                        document.write(new Date().getFullYear());
-					</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				</p>
-			</div>
-
-		</div>
-	</nav>
-
-	<!-- Page Content  -->
-	<div id="content" class="">
-
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-
-				<button type="button" id="sidebarCollapse" class="btn btn-primary">
-					<i class="fa fa-bars"></i>
-					<span class="sr-only">Toggle Menu</span>
-				</button>
-				<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="fa fa-bars"></i>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item ">
-							<div><img src="./images/logo.jpg" alt="" style="width: 40px; height:40px;" class="mr-2">User Name</div>
-						</li>
-						<li class="nav-item">
-							<button class="btn btn-danger ml-2">
-								Đăng Xuất
-							</button>
-						</li>
-					</ul>
+				<div class="footer">
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank">SE12</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
 				</div>
+
 			</div>
 		</nav>
-		<div class="container">
-			<h1>Nhà xe @ViewData["TenNhaXe"]</h1>
-			@RenderBody()
+
+		<!-- Page Content  -->
+		<div id="content" class="">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+						<i class="fa fa-bars"></i>
+						<span class="sr-only">Toggle Menu</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
+							@{
+								<li class="nav-item">
+									<span>Hello <b>@User.Identity.Name.</b></span>
+								</li>
+							}
+							<li class="nav-item">
+								<form method="post" asp-controller="account" asp-action="logout">
+									<button class="btn btn-danger ml-2" type="submit">Đăng xuất</button>
+								</form>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="container-fluid">
+				@RenderBody()
+			</div>
 		</div>
 	</div>
-</div>
+	<environment include="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery"
+				crossorigin="anonymous"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				crossorigin="anonymous"
+				integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+		</script>
+	</environment>
+	<script src="~/js/admin.js" asp-append-version="true"></script>
+	<script src="~/js/qtv0.js" asp-append-version="true"></script>
+	<script src="~/js/qtv1.js" asp-append-version="true"></script>
+	<script src="~/js/qtv2.js" asp-append-version="true"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

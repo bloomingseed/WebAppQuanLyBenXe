@@ -29,7 +29,7 @@ namespace QuanLyBenXeWebApp
 
 				IdentityRole vp, nx, vr;
 				vp = new IdentityRole("QtvVanPhong");
-				vr = new IdentityRole("QTVVaoRa");
+				vr = new IdentityRole("QtvVaoRa");
 				nx = new IdentityRole("QtvNhaXe");
 
 
@@ -49,7 +49,7 @@ namespace QuanLyBenXeWebApp
 						UserName = "officeadmin",
 						HoDem = "Tăng Bá Hồng",
 						Ten = "Phúc",
-						NamGioi = true,
+						GioiTinh = true,
 						PhoneNumber = "19001009"
 					};
 					string pwd = "se12";
@@ -65,7 +65,7 @@ namespace QuanLyBenXeWebApp
 				//		UserName = "admin@nhaxeA",
 				//		HoDem = "Trần Đinh Phước",
 				//		Ten = "Nghĩa",
-				//		NamGioi = true,
+				//		GioiTinh = true,
 				//		PhoneNumber = "19009001"
 				//	};
 				//	string pwd = "se12";

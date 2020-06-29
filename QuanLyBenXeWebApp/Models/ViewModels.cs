@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace QuanLyBenXeWebApp.Models
 {
@@ -45,8 +47,12 @@ namespace QuanLyBenXeWebApp.Models
 		public DiemDung[] DiemDungList { get; set; }
 		public NhaXe[] NhaXeList { get; set; }
 	}
+
 	public class TtDangNhapViewModel
 	{
-		public Dictionary<QuanTriVien, string> Qtv_Role { get; set; }
+		public QuanTriVien Qtv { get; set; }
+		public string Role { get; set; }
+		public string OldPassword { get; set; }
+		public string NewPassword { get; set; }
 	}
 }

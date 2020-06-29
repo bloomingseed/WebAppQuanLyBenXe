@@ -22,17 +22,12 @@ namespace QuanLyBenXeWebApp.Models
 		public string HoDem { get; set; }
 		[Required, StringLength(10)]
 		public string Ten { get; set; }
-		public bool NamGioi { get; set; }
+		public bool GioiTinh { get; set; }
 		[StringLength(40)]
 		public string NoiSinh { get; set; }
 		[Required, StringLength(12)]
 		public override string PhoneNumber { get; set; }
-
-		[NotMapped]
-		public string GioiTinh { get
-			{
-				return NamGioi ? "Nam" : "Nữ";
-			} }
+		
 
 		public NhaXe NhaXe { get; set; }
 		//public static string[] Roles = { "QtvVanPhong", "QtvVaoRa", "QtvNhaXe" };

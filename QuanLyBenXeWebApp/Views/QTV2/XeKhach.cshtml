@@ -2,11 +2,13 @@
 @{
 	Layout = "~/Views/QTV2/_Qtv2Layout.cshtml";
 	ViewData["Title"] = "Xe khách nhà xe " + ViewData["TenNhaXe"];
+	string maNhaXe = Model[0].MaNhaXe;
 }
 <h3>Chỉnh sửa thông tin xe khách</h3>
 <div class="container">
-	<form method="post" asp-action="update">
-		<table id="xekhach-datagrid" class="table-bordered">
+	<form method="post">
+		<div class="text-danger validation-summary"></div>
+		<table id="xk-data-grid" class="table-bordered">
 			<thead>
 				<tr>
 					<th scope="col">Mã xe khách</th>
@@ -20,16 +22,38 @@
 			<tbody>
 				@foreach (XeKhach xk in Model)
 				{
-				<tr>
-					<td><input type="text" value="@xk.MaXeKhach" /></td>
-					<td><input type="text" value="@xk.MaNhaXe" /></td>
-					<td><input type="text" value="@xk.MaTaiXe" /></td>
-					<td><input type="text" value="@xk.BienSoXe" /></td>
-					<td><input type="number" value="@xk.SoGhe" /></td>
-					<td><input type="number" value="@xk.GiaVe" min="50000" max="500000" step="50000" /></td>
-				</tr>
+					<tr>
+						<td><input readonly type="text" value="@xk.MaXeKhach" /></td>
+						<td><input readonly type="text" value="@maNhaXe" /></td>
+						<td><input readonly type="text" value="@xk.MaTaiXe" /></td>
+						<td><input readonly type="text" value="@xk.BienSoXe" /></td>
+						<td><input readonly type="text" list="soghe-list" value="@xk.SoGhe" /></td>
+						<td><input readonly type="number" value="@xk.GiaVe" min="50000" max="500000" step="50000" /></td>
+					</tr>
 				}
+				<tr>
+					<td><input readonly type="text" value="@ViewBag.NextXeKhachId" /></td>
+					<td><input readonly type="text" value="@maNhaXe" /></td>
+					<td><input readonly type="text" value="" /></td>
+					<td><input readonly type="text" value="" /></td>
+					<td><input readonly type="text" list="soghe-list" value="" /></td>
+					<td><input readonly type="number" value="50000" min="50000" max="500000" step="50000" /></td>
+				</tr>
 			</tbody>
 		</table>
+		<datalist id="soghe-list">
+			<option value="12">12 Ghế</option>
+			<option value="16">16 Ghế</option>
+			<option value="24">24 Ghế</option>
+			<option value="29">29 Ghế</option>
+			<option value="35">35 Ghế</option>
+			<option value="45">45 Ghế</option>
+			<option value="50">50 Ghế</option>
+		</datalist>
+		<div class="input-group">
+			<button type="button" id="create-xk">Tạo mới</button>
+			<button type="button" id="update-xk">Cập nhật mới</button>
+			<button type="button" id="delete-xk">Xoá</button>
+		</div>
 	</form>
 </div>

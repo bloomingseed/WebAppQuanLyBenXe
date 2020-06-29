@@ -1,0 +1,31 @@
+﻿@model ViTriDo[]
+
+@{ Layout = "~/Views/Qtv1/_Qtv1Layout.cshtml";
+    ViewData["Title"] = "ViTriDo";
+}
+
+<h1>@ViewData["Title"]  </h1>
+<div class="">
+  
+        <div class="text-danger validation-summary"></div>
+        <div class="input-group">
+            <table id="data-grid" class="table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Mã vị trí</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(ViTriDo vt in Model)
+                    { <tr>
+                    <td><input readonly type="text" value="@vt.MaViTri"/>
+                        </td></tr>
+
+                    }
+
+                    
+                </tbody>
+             </table>
+   </div>
+  
+</div>

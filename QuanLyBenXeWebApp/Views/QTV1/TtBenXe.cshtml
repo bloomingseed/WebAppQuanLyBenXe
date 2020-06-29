@@ -1,0 +1,50 @@
+﻿@model TTBenXe[]
+@{
+    Layout = "~/Views/Qtv1/_Qtv1Layout.cshtml";
+    ViewData["Title"] = "CRUD thông tin trạng thái bến xe";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="">
+    <form method="post">
+        <div class="text-danger validation-summary"></div>
+        <div class="input-group">
+            <table id="data-grid" class=" table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Mã xe khách</th>
+                        <th scope="col">Mã vị trí</th>
+                        <th scope="col">Giờ nhập bến</th>
+
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (TTBenXe tt in Model)
+                    {
+                        <tr>
+                            <td><input readonly type="text" value="@tt.Stt" /></td>
+                            <td><input readonly type="text" value="@tt.MaXeKhach" /></td>
+                            <td><input readonly type="text" value="@tt.MaViTri" /></td>
+                            <td><input readonly type="datetime-local" value="@tt.GioNhapBen.ToString("yyyy-MM-ddThh:mm")" /></td>
+                        </tr>
+                    }
+                    <tr>
+                        <td><input readonly type="text" value="@ViewBag.NextStt" /></td>
+                        <td><input readonly type="text" value="" /></td>
+                        <td><input readonly type="text" value="" /></td>
+                        <td><input readonly type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="input-group">
+            <button type="button" id="create-ttbx">Tạo mới</button>
+            <button type="button" id="update-ttbx">Cập nhật</button>
+            <button type="button" id="delete-ttbx">Xóa</button>
+        </div>
+    </form>
+</div>
+

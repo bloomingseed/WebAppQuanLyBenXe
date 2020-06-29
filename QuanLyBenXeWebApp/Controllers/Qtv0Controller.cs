@@ -41,7 +41,7 @@ namespace QuanLyBenXeWebApp.Controllers
 				lastGiaoDichId = giaoDichCuoi.MaGiaoDich;
 			else
 				lastGiaoDichId = "GD00000000";
-			ViewBag.NextGiaoDichId = String.Concat("GD", IncrementString(lastGiaoDichId.Substring(2)));
+			ViewBag.NextGiaoDichId = String.Concat("GD", Utils.IncrementString(lastGiaoDichId.Substring(2)));
 			ViewBag.MaNhaXes = _context.NhaXe.ToArray();
 			return View(_context.GiaoDich.ToArray());
 		}
@@ -95,7 +95,7 @@ namespace QuanLyBenXeWebApp.Controllers
 			}
 			return Json(messages.ToArray());
 		}
-
+		[HttpGet]
 		public IActionResult TtDangNhap()
 		{
 			QuanTriVien[] qtvs = uManager.Users.ToArray();
@@ -111,7 +111,7 @@ namespace QuanLyBenXeWebApp.Controllers
 				lastQtvId = lastQtv.Id;
 			else
 				lastQtvId = "QT00000000";
-			ViewBag.NextQtvId = String.Concat("QT",IncrementString(lastQtvId.Substring(2)));
+			ViewBag.NextQtvId = String.Concat("QT",Utils.IncrementString(lastQtvId.Substring(2)));
 			ViewBag.Roles = roleManager.Roles;
 			ViewBag.MaNhaXes = _context.NhaXe.ToArray();
 			return View(model);
@@ -126,7 +126,11 @@ namespace QuanLyBenXeWebApp.Controllers
 					throw new Exception("Thông tin không hợp lệ");
 				var result = await uManager.CreateAsync(qtv, password);
 				if (!result.Succeeded)
+				{
+					foreach (var error in result.Errors)
+						ModelState.AddModelError("", error.Description);
 					throw new Exception("Tạo quản trị viên mới không thành công");
+				}
 				result = await uManager.AddToRoleAsync(qtv, roleName);
 				if (!result.Succeeded)
 					throw new Exception("Phân quyền không thành công");
@@ -158,7 +162,7 @@ namespace QuanLyBenXeWebApp.Controllers
 				_qtv.MaNhaXe = qtv.MaNhaXe;
 				_qtv.HoDem = qtv.HoDem;
 				_qtv.Ten = qtv.Ten;
-				_qtv.NamGioi = qtv.NamGioi;
+				_qtv.GioiTinh = qtv.GioiTinh;
 				_qtv.NoiSinh = qtv.NoiSinh;
 				_qtv.PhoneNumber = qtv.PhoneNumber;
 				_qtv.UserName = qtv.UserName;
@@ -293,7 +297,7 @@ namespace QuanLyBenXeWebApp.Controllers
 			else
 				lastViTriId = "MB00000000";
 
-			ViewBag.NextViTriId = String.Concat(lastViTriId.Substring(0, 2), IncrementString(lastViTriId.Substring(2))); ;
+			ViewBag.NextViTriId = String.Concat(lastViTriId.Substring(0, 2), Utils.IncrementString(lastViTriId.Substring(2))); ;
 			ViTriDo[] model = _context.ViTriDo.ToArray();
 			return View(model);
 		}
@@ -386,7 +390,7 @@ namespace QuanLyBenXeWebApp.Controllers
 			else
 				lastNhaXeId = "NX00000000";
 
-			ViewBag.NextNhaXeId = String.Concat("NX", IncrementString(lastNhaXeId.Substring(2)));
+			ViewBag.NextNhaXeId = String.Concat("NX", Utils.IncrementString(lastNhaXeId.Substring(2)));
 			NhaXe[] model = _context.NhaXe.ToArray();
 			return View(model);
 		}
@@ -468,15 +472,6 @@ namespace QuanLyBenXeWebApp.Controllers
 							messages.Add(modelErr.ErrorMessage);
 			}
 			return Json(messages.ToArray());
-		}
-
-		public static string IncrementString(string id)
-		{
-			StringBuilder s = new StringBuilder();
-			string indexString = (int.Parse(id) + 1).ToString();
-			s.Append(new String('0', id.Length - indexString.Length));
-			s.Append(indexString);
-			return s.ToString();
 		}
 	}
 }

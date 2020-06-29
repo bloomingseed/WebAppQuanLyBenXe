@@ -16,7 +16,7 @@ namespace QuanLyBenXeWebApp.Models
 		public DbSet<NhaXe> NhaXe { get; set; }
 		public DbSet<DiemDung> DiemDung { get; set; }
 		public DbSet<XeKhach> XeKhach { get; set; }
-		public DbSet<XeKhachDiemDung> XeKhachDiemDung { get; set; }
+		public DbSet<XeKhach_DiemDung> XeKhach_DiemDung { get; set; }
 		public DbSet<ViTriDo> ViTriDo { get; set; }
 		public DbSet<TTBenXe> TTBenXe { get; set; }
 		public DbSet<LichSuVaoRa> LichSuVaoRa { get; set; }
@@ -26,7 +26,7 @@ namespace QuanLyBenXeWebApp.Models
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<XeKhachDiemDung>()
+			modelBuilder.Entity<XeKhach_DiemDung>()
 				.HasIndex(record => new {
 					record.MaXeKhach, record.MaDiemDung, record.GioDiKhoiDN,
 					record.GioDiToiDN, record.TGDCkhoiDN, record.TGDCtoiDN})
@@ -36,14 +36,14 @@ namespace QuanLyBenXeWebApp.Models
 
 	public class NhaXe
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10,MinimumLength =10)]
 		public string MaNhaXe { get; set; }
 		[Required, StringLength(40)]
 		public string TenNhaXe { get; set; }
 		public int SoLuongXe { get; set; }
-		[Required, StringLength(12)]
+		[Required, StringLength(12,MinimumLength =10)]
 		public string Sdt { get; set; }
-		[Required, StringLength(9)]
+		[Required, StringLength(7, MinimumLength =7)]
 		public string MauBieuTuong { get; set; }
 		[Required, StringLength(60)]
 		public string DiaChi { get; set; }
@@ -55,16 +55,16 @@ namespace QuanLyBenXeWebApp.Models
 
 	public class TaiXe
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10, MinimumLength = 10)]
 		public string MaTaiXe { get; set; }
 		[Required, StringLength(20)]
 		public string HoDem { get; set; }
 		[Required, StringLength(10)]
 		public string Ten { get; set; }
-		public bool NamGioi { get; set; }
+		public bool GioiTinh { get; set; }
 		[StringLength(50)]
 		public string NoiSinh { get; set; }
-		[Required, StringLength(12)]
+		[Required, StringLength(12, MinimumLength = 10)]
 		public string Sdt { get; set; }
 
 		public XeKhach XeKhach { get; set; }
@@ -73,38 +73,31 @@ namespace QuanLyBenXeWebApp.Models
 		{
 			return $"{HoDem} {Ten}";
 		}
-		[NotMapped]
-		public string GioiTinh { get
-			{
-				return NamGioi ? "Nam" : "Nữ";
-			} }
 	}
 
 	public class XeKhach
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10, MinimumLength = 10)]
 		public string MaXeKhach { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaNhaXe { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaTaiXe { get; set; }
-		[Required, StringLength(12)]
+		[Required, StringLength(12, MinimumLength =12)]
 		public string BienSoXe { get; set; }
 		public int SoGhe { get; set; }
 		public int GiaVe { get; set; }
-		//[Required, StringLength(20)]
-		//public string LoaiXe { get; set; }
 
 		public TaiXe TaiXe { get; set; }
 		public NhaXe NhaXe { get; set; }
-		public List<XeKhachDiemDung> DiemDungList { get; set; }
+		public List<XeKhach_DiemDung> DiemDungList { get; set; }
 	}
 
 	public class GiaoDich
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10, MinimumLength = 10)]
 		public string MaGiaoDich { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaNhaXe { get; set; }
 		[Required, DataType(DataType.DateTime)]
 		public DateTime NgayGiaoDich { get; set; }
@@ -114,7 +107,7 @@ namespace QuanLyBenXeWebApp.Models
 
 	public class ViTriDo
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10, MinimumLength = 10)]
 		public string MaViTri { get; set; }
 	}
 
@@ -122,9 +115,9 @@ namespace QuanLyBenXeWebApp.Models
 	{
 		[Key]
 		public int Stt { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaXeKhach { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaViTri { get; set; }
 		[DataType(DataType.DateTime)]
 		public DateTime GioNhapBen { get; set; }
@@ -137,9 +130,9 @@ namespace QuanLyBenXeWebApp.Models
 	{
 		[Key]
 		public int Stt { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaXeKhach { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaViTri { get; set; }
 		public bool VaoBen { get; set; }
 		[DataType(DataType.DateTime)]
@@ -151,7 +144,7 @@ namespace QuanLyBenXeWebApp.Models
 
 	public class DiemDung
 	{
-		[Key, StringLength(10)]
+		[Key, StringLength(10, MinimumLength = 10)]
 		public string MaDiemDung { get; set; }
 		[Required, StringLength(20)]
 		public string TenTinhTp { get; set; }
@@ -164,7 +157,7 @@ namespace QuanLyBenXeWebApp.Models
 		[StringLength(40)]
 		public string SoNhaDuong { get; set; }
 
-		public List<XeKhachDiemDung> XeKhachList { get; set; }
+		public List<XeKhach_DiemDung> XeKhachList { get; set; }
 
 		public override string ToString()
 		{
@@ -179,13 +172,13 @@ namespace QuanLyBenXeWebApp.Models
 		}
 	}
 
-	public class XeKhachDiemDung
+	public class XeKhach_DiemDung
 	{
 		[Key]
 		public int Stt { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaXeKhach { get; set; }
-		[Required, StringLength(10)]
+		[Required, StringLength(10, MinimumLength = 10)]
 		public string MaDiemDung { get; set; }
 		public TimeSpan GioDiKhoiDN { get; set; }
 		public TimeSpan TGDCkhoiDN{ get; set; }
@@ -212,5 +205,16 @@ namespace QuanLyBenXeWebApp.Models
 		public TimeSpan? ThoiGianDiChuyenMax { get; set; }
 		public int? GiaVeMax { get; set; }
 		
+	}
+	public static class Utils
+	{
+		public static string IncrementString(string id)
+		{
+			StringBuilder s = new StringBuilder();
+			string indexString = (int.Parse(id) + 1).ToString();
+			s.Append(new String('0', id.Length - indexString.Length));
+			s.Append(indexString);
+			return s.ToString();
+		}
 	}
 }
