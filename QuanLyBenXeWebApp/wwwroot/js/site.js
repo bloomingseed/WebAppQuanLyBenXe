@@ -57,7 +57,7 @@ function seed_sortoptions() {
 //sort table
 function sort_datagrid() {
 	var index = $("#sort-options")[0].value
-	var rows = $("table tbody tr")
+	var rows = $("table tbody tr:not(:last)")
 	if (index == undefined || rows.length == 0) return
 	do_sort(index, rows)
 }
