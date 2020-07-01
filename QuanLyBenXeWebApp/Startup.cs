@@ -34,7 +34,6 @@ namespace QuanLyBenXeWebApp
 				options.CheckConsentNeeded = context => true;
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
-
 			services.AddDbContext<BenXeDaNangContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 			//add identity
 			services.AddIdentity<QuanTriVien, IdentityRole>(options =>

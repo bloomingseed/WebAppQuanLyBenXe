@@ -9,20 +9,36 @@
   <div class="text-danger validation-summary">
 
   </div> 
-    <div class=" input-group">
-        <table id="data-grid" class=" table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Mã nhà xe</th>
-                    <th scope="col" >Tên nhà xe</th>
-                    <th scope="col">Số lượng xe</th>
-                    <th scope="col">Số điện thoại</th>
-                    <th scope="col">Màu biểu tượng</th>
-                    <th scope="col">Địa chỉ</th>
-                    <th scope="col">Ngày giao dịch cuối</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+  <div class=" input-group">
+  	<table id="data-grid" class=" table-bordered">
+  		<thead>
+  			<tr>
+  				<th scope="col">Mã nhà xe</th>
+  				<th scope="col">Tên nhà xe</th>
+  				<th scope="col">Số lượng xe</th>
+  				<th scope="col">Số điện thoại</th>
+  				<th scope="col">Màu biểu tượng</th>
+  				<th scope="col">Địa chỉ</th>
+  				<th scope="col">Ngày giao dịch cuối</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			@foreach (NhaXe nx in Model)
+		{
+  		<tr>
+  			<td><input readonly type="text" value="@nx.MaNhaXe" /></td>
+  			<td><input readonly type="text" value="@nx.TenNhaXe" /></td>
+  			<td><input readonly type="number" value="@nx.SoLuongXe" /></td>
+  			<td><input readonly type="text" value="@nx.Sdt" /></td>
+  			<td><input readonly type="color" value="@nx.MauBieuTuong" /></td>
+  			<td><input readonly type="text" value="@nx.DiaChi" /></td>
+  			<td><input readonly type="date" value="@nx.GiaoDichCuoi.ToString("yyyy-MM-dd")" /></td>
+  		</tr>
+  }
+  </tbody>
+  </table>
+  <select id="sort-options"></select>
+  <button type="button" id="sort-button">Sắp xếp</button>
+  </div>
 </div>
 

@@ -41,7 +41,39 @@ $(document).ready(function () {
 	registerQtv0EventHandlers()
 	registerQtv1EventHandlers()
 	registerQtv2EventHandlers()
+	seed_sortoptions()
+	$("#sort-button").click(sort_datagrid)
 });
+
+//seed #sort-options
+function seed_sortoptions() {
+	let headers = $("table thead tr th")
+	let selectField = $("#sort-options")
+	let i = 0;
+	for (let h of headers)
+		selectField.append($("<option value='"+(i++)+"'>"+ h.innerText + "</option>"))
+}
+
+//sort table
+function sort_datagrid() {
+	var index = $("#sort-options")[0].value
+	var rows = $("table tbody tr")
+	if (index == undefined || rows.length == 0) return
+	do_sort(index, rows)
+}
+function do_sort(index, rows) {
+	for (let i = 0; i < rows.length - 1; ++i)
+		for (let j = i + 1; j < rows.length; ++j)
+			if (rows[i].children[index].firstChild.value > rows[j].children[index].firstChild.value) {
+				let tmp = rows[i].innerHTML
+				rows[i].innerHTML = rows[j].innerHTML
+				rows[j].innerHTML = tmp
+			}
+}
+
+
+
+
 
 //get required buses from server
 function searchBusesAjax() {

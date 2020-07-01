@@ -426,7 +426,7 @@ function getNhaXe() {
 	var i = 0
 	var nhaXe = {
 		MaNhaXe: fields[i++].value,
-		Ten: fields[i++].value,
+		TenNhaXe: fields[i++].value,
 		SoLuongXe: fields[i++].value,
 		Sdt: fields[i++].value,
 		MauBieuTuong: fields[i++].value,
