@@ -1,0 +1,5 @@
+QuanLyBenXeWebApp/obj/**
+QuanLyBenXeWebApp/bin/**
+QuanLyBenXeWebApp/Migrations/**
+QuanLyBenXeWebApp/*.json
+QuanLyBenXeWebApp/Models

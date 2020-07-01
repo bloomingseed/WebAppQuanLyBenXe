@@ -4,16 +4,14 @@
 }
 @* <link rel="stylesheet" href="~/wwwroot/css/StyleSheet.css"/>*@
 <div class="wrap-content">
-    <div class="wrap">
-
-	
+    <div class="wrap wow bounceInUp">
         <div class="search-block">
             <div class="container">
                 <div class="row">
                     <h2 class="search-title col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="color:black;">
                         Chào mừng đến với bến xe trung tâm TP.Đà Nẵng
                     </h2>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="input-group">
                             <label for="" class="label">Từ</label>
                             <input id="input-start" class="form-control mx-auto my-auto" placeholder="điểm bắt đầu" list="start-points" required>
@@ -25,7 +23,7 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class=" col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="input-group">
                             <label for="" class="label">Đến</label>
                             <input id="input-stop" class="form-control mx-auto my-auto" name="" placeholder="Điểm dừng" list="stop-points" required>
@@ -59,7 +57,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="input-group">
-                                    <label for="quantity" class="label">Khoang T/G</label>
+                                    <label for="quantity" class="label">Khoảng T/G</label>
                                     <input id="input-interval" type="number" class="form-control mx-auto my-auto" name="quantity" min="1" max="48" step="0.5">
                                 </div>
                             </div>
@@ -86,13 +84,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
-                        <button id="toogle-button" type="button" class="btn  d-block" style="background-color: #ffc312;width: 50%; margin:auto">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                        <button id="toogle-button" type="button" class="btn  d-block" style="background-color: #ffc312; ">
                             <i class="fas fa-caret-down"></i> Tìm Kiếm Nâng Cao
                         </button>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto mb-3">
-                        <button id="button-find" type="button" class="btn  d-block" style="background-color:#ffc312; width:50%; margin:auto">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                        <button id="button-find" type="button" class="btn  d-block" style="background-color:#ffc312;">
                             <i class="fas fa-search"></i> Tìm Kiếm
                         </button>
                     </div>
@@ -100,90 +98,213 @@
             </div>
         </div>
 	</div>
-	<div id="result-holder" class ="container" ></div>
-	<div class="promotion">
-		<div class="container">
-			<h2 class="text-uppercase font-bolder">Ưu Đãi</h2>
-			<div class="row blog">
-				<div class="col-md-12 mx-auto">
-					<div id="blogCarousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-							<li data-target="#blogCarousel" data-slide-to="1"></li>
-						</ol>
-						<!-- Carousel items -->
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="row">
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer1.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer2.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer3.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer4.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-								</div>
-								<!--.row-->
-							</div>
-							<!--.item-->
+	<div id="result-holder" class ="container pt-3 wow bounceInUp" ></div>
+	<div class="promotion wow bounceInUp">
+        <div class="container">
+            <div id='nz-div-2'>
+                <h3 class="tde">
+                    <span>Ưu Đãi</span>
+                </h3>
+                <hr>
+            </div>
+            <div class="row blog">
+                <div class="col-md-12 mx-auto">
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3" >
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer1.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer2.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer3.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer4.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
 
-							<div class="carousel-item">
-								<div class="row">
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer5.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer6.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer7.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-									<div class="col-md-3">
-										<a href="#">
-											<img src="../public/assets/img/layer8.png" alt="Image" style="max-width:100%;" class="img-item">
-										</a>
-									</div>
-								</div>
-								<!--.row-->
-							</div>
-							<!--.item-->
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer5.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer6.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer7.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center mb-3">
+                                        <a href="#">
+                                            <img src="../public/assets/img/layer8.png" alt="Image" style="max-width:100%;" class="img-item">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
 
-						</div>
-						<!--.carousel-inner-->
-					</div>
-					<!--.Carousel-->
+                        </div>
+                        <!--.carousel-inner-->
+                    </div>
+                    <!--.Carousel-->
 
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
 	</div>
-	<div class="about-system">
-		<div class="container">
+	<div class="about-system wow bounceInUp">
+        <div class="container">
+            <div id='nz-div-2'>
+                <h3 class="tde">
+                    <span>Thông Tin</span>
+                </h3>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                                <div class="block-init">
+                                    <div style="width:150px;height:auto">
+                                        <div class="border-item">
+                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-1.svg" style="with:50px; height:50px;" />
+                                        </div>
+                                        <br />
+                                        <h3 class="about-title " style="color:#0061C5;">
+                                            Tuyến Đường
+                                        </h3>
+                                        <p>
+                                            5000+
+                                            Tuyến đường
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                <div class="block-init">
+                                    <div>
+                                        <div class="border-item">
+                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-2.svg" style="with:50px; height:50px;" />
+                                        </div>
+                                        <br />
+                                        <h3 class="about-title " style="color:#0061C5;">
+                                            Nhà Xe
+                                        </h3>
+                                        <p>
+                                            2000+
+                                            Nhà xe
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+                                <div class="block-init">
+                                    <div>
+                                        <div class="border-item">
+                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-3.svg" style="with:50px; height:50px;" />
+                                        </div>
+                                        <br />
+                                        <h3 class="about-title " style="color:#0061C5;">
+                                            Đại Lý Bán Vé
+                                        </h3>
+                                        <p>
+                                            5000+
+                                            Đại lý bán vé
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">
+                                <div class="block-init">
+                                    <div>
+                                        <div class="border-item">
+                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-4.svg" style="with:50px; height:50px;" />
+                                        </div>
+                                        <br />
+                                        <h3 class="about-title " style="color:#0061C5;">
+                                            Bến Xe
+                                        </h3>
+                                        <p>
+                                            400+
+                                            Bến xe
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="text-align: justify;">
+                            Đến Đà Nẵng, ngoài việc đi bằng máy bay, tàu hỏa thì xe khách cũng là phương tiện được rất nhiều du khách lựa chọn, ở các bến xe Đà Nẵng bạn có thể tìm cho mình rất nhiều các nhà xe với những lộ trình đi tới nhiều tỉnh thành trên cả nước, điều đó khiến
+                            xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa. <br> Một số tuyến xe chính tại Bến xe trung tâm Đà Nẵng: Đà Nẵng – Hà Nội, Đà Nẵng – Quảng Bình, Đà Nẵng
+                            – Ninh Bình, Đà Nẵng – Thanh Hóa, Đà Nẵng – Nghệ An, Đà Nẵng – Thừa Thiên Huế, Đà Nẵng – Lâm Đồng, Đà Nẵng – TP. HCM, Đà Nẵng – Quảng Ngãi, Đà Nẵng – Bình Định, Đà Nẵng – Đắk Lắk, Đà Nẵng – Khánh Hòa, Đà Nẵng – Phú Yên, Đà
+                            Nẵng – Ninh Thuận, Đà Nẵng – Gia Lai, Đà Nẵng – Hải Phòng.
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="text-align: justify;">
+                            - Bến xe khách thành phố Đà Nẵng có sự liên kết chặc chẽ với các nhà xe trên khắp thành phố, với phương tiện hiện đại và giá thành phải chăng có thể kể đến những nhà xe nổi tiếng như sau:Xe khách Tiến tuyến Tp Hồ Chí Minh-Đà nẵng,nhà xe Hiếu Viện, xe
+                            khách Thọ Mười, xe khách Hoàng Long,nhà xe Phúc Thuận…
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="text-align: justify;">
+                            Miền Bắc: <br />
+                            - Hà Nội: 374, Đường Lạc Trung, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Vĩnh Tuy, Hai Bà Trưng, Hà Nội.
+                            - Quảng Ninh: 134, Trần Hưng Đạo, Thành Phố Hạ Long, Tỉnh Quảng Ninh.
+                            - Hải Phòng: 45 Nguyễn Hữu Tuệ, Gia Viên, Ngô Quyền, Hải Phòng. <br />
+                            Miền Trung:<br />
+                            - Quảng Huế: 102 Phạm Hoàng, Thừa, TP Huế.
+                            - Quảng Nam: 100 Nguyễn Công, Huyện Đại Lộc, Tỉnh Quảng Nam.
+                            - Đà Nẵng: 54 Nguyễn Lương Bằng,Q.Liên Chiểu, Tp Đà Nẵng.
+                            - Quảng Ngãi: 25 Phú Xuân, Tỉnh Quảng Ngãi.<br />
+                            Miền Nam: <br />
+                            - Hồ Chí Minh: 268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh - 159a/6 Dạ Nam, Phường 3, Quận 8, Hồ Chí Minh -415 TL10, An Lạc A, Bình Tân, Hồ Chí Minh
+                            - Bến Tre: 17A27, Quốc Lộ 60, Khu Phố Bình Thành, Phường Bình Phú, Thành Phố Bến Tre, Tỉnh Bến Tre, Bình Phú, Bến Tre.
+                            - Vĩnh Long: 57/7, Mậu Thân, Phường 3, Thành Phố Vĩnh Long, Tỉnh Vĩnh Long.
+                        </div>
+                        <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab" style="text-align: justify;">
+                            Đến Đà Nẵng, ngoài việc đi bằng máy bay, tàu hỏa thì xe khách cũng là phương tiện được rất nhiều du khách lựa chọn, ở các bến xe Đà Nẵng bạn có thể tìm cho mình rất nhiều các nhà xe với những lộ trình đi tới nhiều tỉnh thành trên cả nước, điều đó khiến
+                            xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa.
+                            <br />
+                            Những bến xe hợp tác với bến xe Đà Nẵng bao gồm: Bến xe Miền Đông Hồ Chí Minh, Bến xe Miền Tây Hồ Chí Minh, Bến xe Trung Tâm Hà Nội, Bến xe Long Giang, Bến xe Hiệp Hoàng, Bến xe Hoa Xuân, Bến xe Hải Long,...
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		@*<div class="container">
 			<div class="row">
 				<div class="contents col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<h3 class="about-title">
-						Tuyến Đường
-					</h3>
-					<p class=" about-text">
+                    <h3 class="about-title " style="color:#0061C5;">
+                        <i class="fas fa-map-marked-alt"></i> Tuyến Đường
+                    </h3>
+					<p class=" about-text" style="text-align: justify;">
 						Đến Đà Nẵng, ngoài việc đi bằng máy bay, tàu hỏa thì xe khách cũng là phương tiện được rất nhiều du khách lựa chọn, ở các bến xe Đà Nẵng bạn có thể tìm cho mình rất nhiều các nhà xe với những lộ trình đi tới nhiều tỉnh thành trên cả nước, điều đó khiến
 						xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa. <br> Một số tuyến xe chính tại Bến xe trung tâm Đà Nẵng: Đà Nẵng – Hà Nội, Đà Nẵng – Quảng Bình, Đà Nẵng
 						– Ninh Bình, Đà Nẵng – Thanh Hóa, Đà Nẵng – Nghệ An, Đà Nẵng – Thừa Thiên Huế, Đà Nẵng – Lâm Đồng, Đà Nẵng – TP. HCM, Đà Nẵng – Quảng Ngãi, Đà Nẵng – Bình Định, Đà Nẵng – Đắk Lắk, Đà Nẵng – Khánh Hòa, Đà Nẵng – Phú Yên, Đà
@@ -191,37 +312,46 @@
 					</p>
 				</div>
 				<div class="contents col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<h3 class="about-title">
-						Nhà Xe
-					</h3>
-					<p class=" about-text">
+                    <h3 class="about-title " style="color:#0061C5;">
+                        <i class="fab fa-bus"></i> Nhà Xe
+                    </h3>
+					<p class=" about-text" style="text-align: justify;">
 						- Bến xe khách thành phố Đà Nẵng có sự liên kết chặc chẽ với các nhà xe trên khắp thành phố, với phương tiện hiện đại và giá thành phải chăng có thể kể đến những nhà xe nổi tiếng như sau:Xe khách Tiến tuyến Tp Hồ Chí Minh-Đà nẵng,nhà xe Hiếu Viện, xe
 						khách Thọ Mười, xe khách Hoàng Long,nhà xe Phúc Thuận…
 					</p>
 				</div>
 				<div class="contents col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<h3 class="about-title">
-						Đại Lý Bán Vé
-					</h3>
-					<p class=" about-text">
-						Đến Đà Nẵng, ngoài việc đi bằng máy bay, tàu hỏa thì xe khách cũng là phương tiện được rất nhiều du khách lựa chọn, ở các bến xe Đà Nẵng bạn có thể tìm cho mình rất nhiều các nhà xe với những lộ trình đi tới nhiều tỉnh thành trên cả nước, điều đó khiến
-						xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa. <br> Một số tuyến xe chính tại Bến xe trung tâm Đà Nẵng: Đà Nẵng – Hà Nội, Đà Nẵng – Quảng Bình, Đà Nẵng
-						– Ninh Bình, Đà Nẵng – Thanh Hóa, Đà Nẵng – Nghệ An, Đà Nẵng – Thừa Thiên Huế, Đà Nẵng – Lâm Đồng, Đà Nẵng – TP. HCM, Đà Nẵng – Quảng Ngãi, Đà Nẵng – Bình Định, Đà Nẵng – Đắk Lắk, Đà Nẵng – Khánh Hòa, Đà Nẵng – Phú Yên, Đà
-						Nẵng – Ninh Thuận, Đà Nẵng – Gia Lai, Đà Nẵng – Hải Phòng.
-					</p>
+                    <h3 class="about-title" style="color:#0061C5;">
+                        <i class="fas fa-warehouse"></i> Đại Lý Bán Vé
+                    </h3>
+                    <p class=" about-text" style="text-align: justify;">
+                        Miền Bắc: <br />
+                        - Hà Nội: 374, Đường Lạc Trung, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Vĩnh Tuy, Hai Bà Trưng, Hà Nội.
+                        - Quảng Ninh: 134, Trần Hưng Đạo, Thành Phố Hạ Long, Tỉnh Quảng Ninh.
+                        - Hải Phòng: 45 Nguyễn Hữu Tuệ, Gia Viên, Ngô Quyền, Hải Phòng. <br />
+                        Miền Trung:<br />
+                        - Quảng Huế: 102 Phạm Hoàng, Thừa, TP Huế.
+                        - Quảng Nam: 100 Nguyễn Công, Huyện Đại Lộc, Tỉnh Quảng Nam.
+                        - Đà Nẵng: 54 Nguyễn Lương Bằng,Q.Liên Chiểu, Tp Đà Nẵng.
+                        - Quảng Ngãi: 25 Phú Xuân, Tỉnh Quảng Ngãi.<br />
+                        Miền Nam: <br />
+                        - Hồ Chí Minh: 268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh - 159a/6 Dạ Nam, Phường 3, Quận 8, Hồ Chí Minh -415 TL10, An Lạc A, Bình Tân, Hồ Chí Minh
+                        - Bến Tre: 17A27, Quốc Lộ 60, Khu Phố Bình Thành, Phường Bình Phú, Thành Phố Bến Tre, Tỉnh Bến Tre, Bình Phú, Bến Tre.
+                        - Vĩnh Long: 57/7, Mậu Thân, Phường 3, Thành Phố Vĩnh Long, Tỉnh Vĩnh Long.
+                    </p>
 				</div>
 				<div class="contents col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<h3 class="about-title">
-						Bến Xe
+					<h3 class="about-title" style="color:#0061C5;">
+                        <i class="fas fa-landmark"></i> Bến Xe
 					</h3>
-					<p class=" about-text">
+					<p class=" about-text" style="text-align: justify;">
 						Đến Đà Nẵng, ngoài việc đi bằng máy bay, tàu hỏa thì xe khách cũng là phương tiện được rất nhiều du khách lựa chọn, ở các bến xe Đà Nẵng bạn có thể tìm cho mình rất nhiều các nhà xe với những lộ trình đi tới nhiều tỉnh thành trên cả nước, điều đó khiến
-						xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa. <br> Một số tuyến xe chính tại Bến xe trung tâm Đà Nẵng: Đà Nẵng – Hà Nội, Đà Nẵng – Quảng Bình, Đà Nẵng
-						– Ninh Bình, Đà Nẵng – Thanh Hóa, Đà Nẵng – Nghệ An, Đà Nẵng – Thừa Thiên Huế, Đà Nẵng – Lâm Đồng, Đà Nẵng – TP. HCM, Đà Nẵng – Quảng Ngãi, Đà Nẵng – Bình Định, Đà Nẵng – Đắk Lắk, Đà Nẵng – Khánh Hòa, Đà Nẵng – Phú Yên, Đà
-						Nẵng – Ninh Thuận, Đà Nẵng – Gia Lai, Đà Nẵng – Hải Phòng.
+						xe khách trở thành một trong những phương tiện đem lại sự thuận tiện cho những chuyến đi xa. 
+                        <br/>
+                        Những bến xe hợp tác với bến xe Đà Nẵng bao gồm: Bến xe Miền Đông Hồ Chí Minh, Bến xe Miền Tây Hồ Chí Minh, Bến xe Trung Tâm Hà Nội, Bến xe Long Giang, Bến xe Hiệp Hoàng, Bến xe Hoa Xuân, Bến xe Hải Long,...
 					</p>
 				</div>
 			</div>
-		</div>
+		</div>*@
 	</div>
 </div>

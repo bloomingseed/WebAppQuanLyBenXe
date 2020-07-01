@@ -101,23 +101,24 @@ function updateSelectedRow(row, start) {
 
 //render the returned xe khach json object
 function renderXeKhachJson(jsonArray) {
-	var jResHolder = $("#result-holder")
+	var jResHolder = $("#result-holder");;
+	var ok = jResHolder.append($("<div id='nz-div-2'><h3 class='tde'><span>Kết quả tìm kiếm</span></h3><hr></div>"));
 	if (jsonArray.length == undefined) {
-		jResHolder.append($("<div class='text-info'></div>").html("Không tìm thấy xe khách như yêu cầu"))
+		jResHolder.append($("<div class='text-info d-sm-flex justify-content-sm-center align-items-sm-center'></div>").html("Không tìm thấy xe khách như yêu cầu"))
 		return
 	}	
-	var elHtml = '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>'
+	var elHtml = '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 "></div>'
 		+ '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-sm-flex justify-content-sm-center align-items-sm-center"></div>'
-		+ '<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark d-sm-flex justify-content-sm-center"></div>'
-		+ '<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>'
-		+ '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-xl-flex justify-content-xl-end"></div>',
-		ctnerHtml = "<div class = 'row border'></div>";
+		+ '<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark d-sm-flex justify-content-sm-center txt"></div>'
+		+ '<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 txt"></div>'
+		+ '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-xl-flex justify-content-xl-end txt"></div>',
+		ctnerHtml = "<div class = 'row result-items'></div>";
 	for (let xeKhach of jsonArray) {
 		
 		var curr = $(ctnerHtml),
@@ -129,7 +130,7 @@ function renderXeKhachJson(jsonArray) {
 
 		worker = $(elArr[i]).html("Nhà xe: &nbsp;")
 			.append($('<a></a>').attr("href", "/home/nhaxe?id=" + xeKhach.maNhaXe)
-				.append($('<h6 class="d-sm-flex justify-content-sm-center align-items-sm-center"></h6>').html(xeKhach.tenNhaXe)));
+				.html(xeKhach.tenNhaXe));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Tên tài xế: &nbsp;")
@@ -137,33 +138,33 @@ function renderXeKhachJson(jsonArray) {
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Loại xe: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(""+xeKhach.soGhe+" chỗ"));
+			.append($('<span style="font-size: 15px"></span>').html(""+xeKhach.soGhe+" chỗ"));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Điểm đón khách: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(xeKhach.diemXuatPhat));
+			.append($('<span style="font-size: 15px"></span>').html(xeKhach.diemXuatPhat));
 		$(elArr[i++]).append(worker);
 
-		worker = $(elArr[i]).html("Thời gian di chuyển &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(formatTime(xeKhach.thoiGianDiChuyen)));
+		worker = $(elArr[i]).html("Thời gian di chuyển: &nbsp;")
+			.append($('<span style="font-size: 15px"></span>').html(formatTime(xeKhach.thoiGianDiChuyen)));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Điểm trả khách: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(xeKhach.diemDungXe));
+			.append($('<span style="font-size: 15px"></span>').html(xeKhach.diemDungXe));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Thời điểm đón khách: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(formatDateTime(xeKhach.thoiDiemDi)));
+			.append($('<span style="font-size: 15px"></span>').html(formatDateTime(xeKhach.thoiDiemDi)));
 		$(elArr[i++]).append(worker);
 
 		worker = $(elArr[i]).html("Thời điểm trả khách: &nbsp;")
-			.append($('<span style="font-size: 16px"></span>').html(formatDateTime(xeKhach.thoiDiemDen)));
+			.append($('<span style="font-size: 15px"></span>').html(formatDateTime(xeKhach.thoiDiemDen)));
 		$(elArr[i++]).append(worker);
 
-		worker = $(elArr[i]).html("Giá vé: &nbsp;").append($('<span style="font-size: 16px"></span>').html(xeKhach.giaVe));
+		worker = $(elArr[i]).html("Giá vé: &nbsp;").append($('<span style="font-size: 15px"></span>').html(xeKhach.giaVe));
 		$(elArr[i++]).append(worker);
 
-		worker = $(elArr[i]).html("Số điện thoại nhà xe: &nbsp;").append($('<span style="font-size: 13px"></span>').html(xeKhach.sdtNhaXe));
+		worker = $(elArr[i]).html("Số điện thoại nhà xe: &nbsp;").append($('<a style="font-size: 16px; color:#ffc312;" href="tel:+"></a>').html(xeKhach.sdtNhaXe));
 		$(elArr[i++]).append(worker);
 
 		//curr.append(elArr);
@@ -186,7 +187,8 @@ function formatDateTime(dateTimeString) {
 	var dateTimeArr = dateTimeString.split('T');
 	return `${formatTime(dateTimeArr[1])}, ngày ${formatDate(dateTimeArr[0])}`
 }
-window.onscroll = function () { scrollFunction() };
+
+/*window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
 	if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -204,4 +206,4 @@ function nonebg() {
 }
 function activitybg() {
 	$("#navbar").removeClass("is-hidden").addClass("is-visible");
-}
+}*/

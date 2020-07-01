@@ -144,8 +144,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .nav-link {
 	color: black!important;
-	text-transform: uppercase;
-	font-weight: bold;
+	text-transform: capitalize;
 }
 	
 .search-block {
@@ -213,7 +212,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .footer {
 	padding: 20px 0px;
-	background-color: #20232e;
+	background-color: black	;
 	color: white;
 }
 
@@ -349,4 +348,162 @@ a[data-toggle="collapse"] {
 /* footer*/
 ul{
 	padding:0;
+}
+/*test*/
+
+nav > .nav.nav-tabs {
+	border: none;
+	color: #fff;
+	background: #272e38;
+	border-radius: 0;
+}
+
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active {
+	border: none;
+	padding: 18px 25px;
+	color: #fff;
+	background: #F3F3F3;
+	border-radius: 0;
+}
+
+	nav > div a.nav-item.nav-link.active:after {
+		content: "";
+		position: relative;
+		bottom: -60px;
+		left: -10%;
+		border: 15px solid transparent;
+		border-top-color: #e74c3c;
+	}
+
+.tab-content {
+	background: #F3F3F3;
+	line-height: 25px;
+	border-top: 5px solid #e74c3c;
+	/*border-bottom: 5px solid #e74c3c;*/
+	padding: 30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus {
+	border: none;
+	background: #e74c3c;
+	color: #fff;
+	border-radius: 0;
+	transition: background 0.20s linear;
+}
+.block-init{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:250px;
+	width:100%;
+}
+.border-item {
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: white;
+	color:white;
+}
+.about-title {
+	font-family: 'Roboto', sans-serif;
+	font-size:20px;
+}
+/*css tieu đề*/
+#nz-div-2 h3.tde :after {
+	content: "";
+	width: 0;
+	height: 0;
+	border-top: 19px solid transparent;
+	border-left: 15px solid #EA3A3C;
+	border-bottom: 19px solid transparent;
+	border-right: 0 solid transparent;
+	position: absolute;
+	top: 0px;
+	right: -15px;
+}
+
+#nz-div-2 h3.tde span {
+	background: #EA3A3C;
+	padding: 10px 20px 8px 20px;
+	color: white;
+	position: relative;
+	display: inline-block;
+	margin: 0;
+}
+
+#nz-div-2 h3.tde {
+	margin: 15px 0;
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+}
+
+#nz-div-2 hr {
+	margin: -34px 0px 54px 0px;
+	border: 1px solid red;
+}
+#toogle-button {
+	margin: 10px auto;
+	width: 50%;
+}
+
+#button-find {
+	width: 50%;
+	margin: 10px auto;
+}
+.result-items, .border-nx {
+	margin: 20px 0;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+	.result-items:hover {
+		box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	}
+.txt {
+	color: black;
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+}
+
+/*css mobile*/
+@media only screen and (max-width: 600px) {
+	.login-title, .search-title {
+		text-align: center;
+		text-transform: capitalize;
+		color: beige;
+		padding: 20px 5px;
+		font-family: "Roboto", sans-serif;
+		font-size:17px;
+	}
+	.label {
+		display: flex;
+		padding: 0px 0px;
+		color: black;
+		width: 50px;
+		height: 68px;
+		margin-right: 10px;
+		justify-content: center;
+		align-items: center;
+		font-size:13px;
+	}
+	.input-group {
+		width: 100%;
+		margin-bottom: 0px;
+		background: none;
+		height: 50px;
+	}
+	#toogle-button {
+		margin: 10px auto;
+		width: 80%;
+	}
+	#button-find {
+		width: 80%;
+		margin: 10px auto;
+	}
 }
