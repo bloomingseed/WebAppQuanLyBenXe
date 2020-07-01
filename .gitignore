@@ -1,5 +1,10 @@
 QuanLyBenXeWebApp/obj/**
 QuanLyBenXeWebApp/bin/**
-QuanLyBenXeWebApp/Migrations/**
-QuanLyBenXeWebApp/*.json
-QuanLyBenXeWebApp/Models
+QuanLyBenXeWebApp/Migrations/
+QuanLyBenXeWebApp/Properties/
+QuanLyBenXeWebApp/QuanLyBenXeWebApp.*
+.vs/**
+*.sln
+docker*.*
+Dockerfile
+nginx/**
