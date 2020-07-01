@@ -4,15 +4,17 @@
 }
 
 <section>
-	<div class="view-container">
-		<div class="row">
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<h4>@Model.MaTaiXe</h4>
-			</div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 13px;">Họ và tên: @Model.ToString() </span></div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 13px;">Giới tính: @(Model.GioiTinh?"Nam":"Nữ") </span></div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 13px;">Nơi Sinh: @Model.NoiSinh </span></div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 13px;">Số điện thoại: @Model.Sdt </span></div>
-		</div>
-	</div>
+    <div class="view-container p-3">
+        <div class="container">
+            <div class="row border-nx">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                    <h4>@Model.MaTaiXe</h4>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 15px;">Họ và tên: @Model.ToString() </span></div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 15px;">Giới tính: @(Model.GioiTinh?"Nam":"Nữ") </span></div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 15px;">Nơi Sinh: @Model.NoiSinh </span></div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><span style="font-size: 15px;">Số điện thoại: @Model.Sdt </span></div>
+            </div>
+        </div>
+    </div>
 </section>

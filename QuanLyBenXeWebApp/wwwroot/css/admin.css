@@ -200,4 +200,7 @@ a[data-toggle="collapse"] {
 {
     color: rgba(255, 255, 255, .5);
 }
+.active {
+    color: red;
+}
 
